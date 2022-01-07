@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestNewsApp</string>
+    <string name="api_key">85eb2f4fdde34960a2ae4774d5808df5</string>
+    <string name="api_key2">6469c060fbb04ce5a6a896c2f19fb8b1</string>
+
+    <string name="text_title">The main title will be displayed here. This is true, but if it is too large, it will be partially hidden.</string>
+</resources>
