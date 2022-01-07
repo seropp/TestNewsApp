@@ -35,7 +35,7 @@ class SportsFragment : Fragment() {
         recyclerViewFromSports.adapter = newsAdapter
 
         val manager = RequestManagerForNewsAPI()
-        manager.findNews(context, category, newsHeadLinesArrayList, newsAdapter)
+        manager.findHeadlinesNews(context, category, newsHeadLinesArrayList, newsAdapter)
         return view
     }
 }

@@ -11,65 +11,58 @@ import java.io.IOException
 import com.google.gson.GsonBuilder
 
 import com.google.gson.Gson
-
-
+import org.intellij.lang.annotations.Language
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 class RequestManagerForNewsAPI {
     private var retrofit: Retrofit? = null
 
-    fun findNews(
+    fun findEverythingNews(
+        context: Context?,
+        list: ArrayList<NewsHeadLines>,
+        newsAdapter: NewsAdapter
+    ) {
+        val query1: String? = "????"
+        val sources1: String? = "????"
+        val language1: String? = "????"
+        var key1: String = context!!.getString(R.string.api_key2);
+
+
+        val call = getInterfaceAPI()!!
+            .callEverything(
+                null, "CNN,techcrunch",
+                "en", "74a1692513764c3e9a7aedb4a5dbc090"
+            )
+
+        requestToAPI(call, context, newsAdapter, list)
+
+    }
+
+    fun findHeadlinesNews(
         context: Context?,
         category: String,
         list: ArrayList<NewsHeadLines>,
         newsAdapter: NewsAdapter
     ) {
+        val query1: String? = "????"
+        val sources1: String? = "????"
         val country = getCountry()
         var key: String = context!!.getString(R.string.api_key2);
 
         val call = getInterfaceAPI()!!
-            .callHeadLinesNews(country, category, null, key)
+            .callHeadLinesNews(null, country, category, "74a1692513764c3e9a7aedb4a5dbc090")
 
-        call.enqueue(object : Callback<NewsApiResponse> {
-            override fun onResponse(
-                call: Call<NewsApiResponse>,
-                response: Response<NewsApiResponse>
-            ) {
-                if (response.isSuccessful) {
-                    list.addAll(response.body()!!.articles!!)
-                    newsAdapter.notifyDataSetChanged()
-                } else {
-                    Toast.makeText(context, "Unsuccessful API response", Toast.LENGTH_LONG).show()
-                }
-            }
-
-            override fun onFailure(call: Call<NewsApiResponse>, t: Throwable) {
-                Toast.makeText(context, "API response error", Toast.LENGTH_LONG).show()
-            }
-        })
+        requestToAPI(call, context, newsAdapter, list)
     }
 
-
-
-    private fun getCountry(): String {
-        return "ru"
-
-        // some code
-    }
-
-
-
-    fun findNewsForEverything(
+    private fun requestToAPI(
+        call: Call<NewsApiResponse>,
         context: Context?,
-        list: ArrayList<NewsHeadLines>,
-        newsAdapter: NewsAdapter
+        newsAdapter: NewsAdapter,
+        list: ArrayList<NewsHeadLines>
     ) {
-        var key: String = context!!.getString(R.string.api_key2);
-        val language: String = "en"
-
-        val call = getInterfaceAPI()!!
-            .callEverything("en",20 , key, null)
-
         call.enqueue(object : Callback<NewsApiResponse> {
             override fun onResponse(
                 call: Call<NewsApiResponse>,
@@ -80,12 +73,10 @@ class RequestManagerForNewsAPI {
                 if (response.isSuccessful) {
                     list.addAll(response.body()!!.articles!!)
                     newsAdapter.notifyDataSetChanged()
+                } else {
+                    Toast.makeText(context, "$statusCode Bad request", Toast.LENGTH_LONG)
+                        .show()
                 }
-
-                else {
-                        Toast.makeText(context, "$statusCode Bad request", Toast.LENGTH_LONG)
-                            .show()
-                    }
             }
 
             override fun onFailure(call: Call<NewsApiResponse>, t: Throwable) {
@@ -101,6 +92,30 @@ class RequestManagerForNewsAPI {
         }
         return retrofit!!.create(InterfaceCallApi::class.java)
     }
+
+    private fun getCountry(): String {
+        return "ru"
+
+        // some code
+    }
 }
 
+interface InterfaceCallApi {
 
+
+    @GET("top-headlines")
+    fun callHeadLinesNews(
+        @Query("q") query: String?,
+        @Query("country") country: String?,
+        @Query("category") category: String?,
+        @Query("apiKey") api_key: String?,
+    ): Call<NewsApiResponse>
+
+    @GET("everything")
+    fun callEverything(
+        @Query("q") query: String?,
+        @Query("sources") sources: String?,
+        @Query("language") language: String?,
+        @Query("apiKey") api_key: String?,
+    ): Call<NewsApiResponse>
+}

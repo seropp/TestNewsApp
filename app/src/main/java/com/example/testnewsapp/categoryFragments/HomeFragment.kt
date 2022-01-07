@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
         recyclerViewFromHome.adapter = newsAdapter
 
         val manager = RequestManagerForNewsAPI()
-        manager.findNewsForEverything(context, newsEverythingArrayList, newsAdapter)
+        manager.findEverythingNews(context, newsEverythingArrayList, newsAdapter)
         return view
     }
 }
