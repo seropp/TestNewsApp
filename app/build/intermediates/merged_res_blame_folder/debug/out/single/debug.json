@@ -12,12 +12,12 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\activity_web_view.xml"
     },
     {
-        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_sett.png.flat",
-        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-hdpi\\sett.png"
-    },
-    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_business_fragment.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\business_fragment.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_sett.png.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-hdpi\\sett.png"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
@@ -30,6 +30,10 @@
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_layout_bg.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\layout_bg.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_settings_24.xml.flat",
@@ -76,12 +80,12 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_health_fragment.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\health_fragment.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_science_fragment.xml.flat",

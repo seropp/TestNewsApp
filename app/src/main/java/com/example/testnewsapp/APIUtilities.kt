@@ -7,11 +7,7 @@ import com.example.testnewsapp.models.NewsApiResponse
 import com.example.testnewsapp.models.NewsHeadLines
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
-import com.google.gson.GsonBuilder
 
-import com.google.gson.Gson
-import org.intellij.lang.annotations.Language
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -44,15 +40,15 @@ class RequestManagerForNewsAPI {
         context: Context?,
         category: String,
         list: ArrayList<NewsHeadLines>,
-        newsAdapter: NewsAdapter
+        newsAdapter: NewsAdapter,
+        query: String? = null
     ) {
-        val query1: String? = "????"
         val sources1: String? = "????"
         val country = getCountry()
         var key: String = context!!.getString(R.string.api_key2);
 
         val call = getInterfaceAPI()!!
-            .callHeadLinesNews(null, country, category, "74a1692513764c3e9a7aedb4a5dbc090")
+            .callHeadLinesNews(query, country, category, "74a1692513764c3e9a7aedb4a5dbc090")
 
         requestToAPI(call, context, newsAdapter, list)
     }
