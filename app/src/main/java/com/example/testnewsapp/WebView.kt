@@ -6,17 +6,19 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class WebView : AppCompatActivity() {
 
     lateinit var toolbar: Toolbar
-    lateinit var webView: WebView
+    private lateinit var webView: WebView
+    private lateinit var shareBT: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
 
+        shareBT = findViewById(R.id.web_view_share_bt)
         toolbar = findViewById(R.id.toolbar)
         webView = findViewById(R.id.web_view)
 
@@ -27,5 +29,15 @@ class WebView : AppCompatActivity() {
 
         webView.webViewClient = WebViewClient()
         webView.loadUrl(url)
+
+        shareBT.setOnClickListener {
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/plain"
+            val shareBody = webView.url
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
+
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Catch:")
+            startActivity(Intent.createChooser(sharingIntent, "Share via"))
+        }
     }
 }
