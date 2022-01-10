@@ -1,2 +1,24 @@
+com/example/testnewsapp/databinding/ItemLayoutBinding.java
+ com.example.testnewsapp.databinding.ItemLayoutBinding
+com/example/testnewsapp/databinding/EntertainmentFragmentBinding.java
+ com.example.testnewsapp.databinding.EntertainmentFragmentBinding
+com/example/testnewsapp/databinding/TechnologyFragmentBinding.java
+ com.example.testnewsapp.databinding.TechnologyFragmentBinding
+com/example/testnewsapp/databinding/ActivityWebViewBinding.java
+ com.example.testnewsapp.databinding.ActivityWebViewBinding
 com/example/testnewsapp/BuildConfig.java
  com.example.testnewsapp.BuildConfig
+com/example/testnewsapp/databinding/ActivityMainBinding.java
+ com.example.testnewsapp.databinding.ActivityMainBinding
+com/example/testnewsapp/databinding/HealthFragmentBinding.java
+ com.example.testnewsapp.databinding.HealthFragmentBinding
+com/example/testnewsapp/databinding/BusinessFragmentBinding.java
+ com.example.testnewsapp.databinding.BusinessFragmentBinding
+com/example/testnewsapp/databinding/SportsFragmentBinding.java
+ com.example.testnewsapp.databinding.SportsFragmentBinding
+com/example/testnewsapp/databinding/HomeFragmentBinding.java
+ com.example.testnewsapp.databinding.HomeFragmentBinding
+com/example/testnewsapp/databinding/ActivityLoginBinding.java
+ com.example.testnewsapp.databinding.ActivityLoginBinding
+com/example/testnewsapp/databinding/ScienceFragmentBinding.java
+ com.example.testnewsapp.databinding.ScienceFragmentBinding

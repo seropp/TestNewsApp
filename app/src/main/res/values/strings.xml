@@ -3,5 +3,18 @@
     <string name="api_key">85eb2f4fdde34960a2ae4774d5808df5</string>
     <string name="api_key2">6469c060fbb04ce5a6a896c2f19fb8b1</string>
 
+    <string name="facebook_application_id" translatable="false">898283424170143</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb898283424170143</string>
+
+    
     <string name="text_title">The main title will be displayed here. This is true, but if it is too large, it will be partially hidden.</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

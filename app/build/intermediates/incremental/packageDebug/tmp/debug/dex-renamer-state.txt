@@ -1,10 +1,13 @@
-#Sat Jan 08 17:17:32 MSK 2022
-path.4=7/classes.dex
+#Mon Jan 10 22:21:21 MSK 2022
+path.4=12/classes.dex
 path.3=11/classes.dex
 path.2=10/classes.dex
 path.1=0/classes.dex
+path.7=classes2.dex
+path.6=7/classes.dex
+path.5=2/classes.dex
 path.0=classes.dex
-base.4=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.4=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
 base.3=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
 base.2=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
 base.1=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
@@ -13,4 +16,10 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.7=classes8.dex
+renamed.6=classes7.dex
+base.7=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+renamed.5=classes6.dex
+base.6=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
 renamed.4=classes5.dex
+base.5=E\:\\TestNewsApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
