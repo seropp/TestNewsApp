@@ -2,6 +2,8 @@ com/example/testnewsapp/databinding/ItemLayoutBinding.java
  com.example.testnewsapp.databinding.ItemLayoutBinding
 com/example/testnewsapp/databinding/EntertainmentFragmentBinding.java
  com.example.testnewsapp.databinding.EntertainmentFragmentBinding
+com/example/testnewsapp/DataBindingTriggerClass.java
+ com.example.testnewsapp.DataBindingTriggerClass
 com/example/testnewsapp/databinding/TechnologyFragmentBinding.java
  com.example.testnewsapp.databinding.TechnologyFragmentBinding
 com/example/testnewsapp/databinding/ActivityWebViewBinding.java

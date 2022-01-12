@@ -247,6 +247,11 @@ attr circularflow_defaultAngle
 attr circularflow_defaultRadius
 attr circularflow_radiusInDP
 attr circularflow_viewCenter
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
+attr civ_fill_color
 attr clearsTag
 attr clickAction
 attr clockFaceBackgroundColor
@@ -295,8 +300,6 @@ attr com_facebook_confirm_logout
 attr com_facebook_foreground_color
 attr com_facebook_horizontal_alignment
 attr com_facebook_is_cropped
-attr com_facebook_login_button_radius
-attr com_facebook_login_button_transparency
 attr com_facebook_login_text
 attr com_facebook_logout_text
 attr com_facebook_object_id
@@ -1877,6 +1880,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable bg
+drawable bg1
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2113,7 +2117,9 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btn_holder
-id btn_sing_out
+id btn_log_in
+id btn_signout
+id btn_to_begin_login
 id business
 id button
 id buttonPanel
@@ -2122,7 +2128,6 @@ id button_create
 id button_done
 id button_next
 id button_resend_email
-id button_setting
 id button_sign_in
 id cache_measures
 id callMeasure
@@ -2188,6 +2193,7 @@ id custom
 id customPanel
 id cut
 id dark
+id dataBinding
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -2315,6 +2321,8 @@ id line3
 id linear
 id listMode
 id list_item
+id login_email
+id login_txt_name
 id logo
 id main_icon
 id main_tos_and_pp
@@ -2397,6 +2405,8 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onAttachStateChangeListener
+id onDateChanged
 id onInterceptTouchReturnSwipe
 id open_graph
 id outline
@@ -2546,6 +2556,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2913,11 +2924,13 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string facebook_app_id
 string facebook_application_id
 string facebook_login_protocol_scheme
 string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
+string fb_login_protocol_scheme
 string firebase_web_host
 string fui_accessibility_logo
 string fui_auto_verified
@@ -3022,6 +3035,7 @@ string icon_content_description
 string invalid_password
 string invalid_username
 string item_view_role_description
+string log_in
 string login_failed
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -3088,9 +3102,13 @@ string project_id
 string prompt_email
 string prompt_password
 string search_menu_title
+string sign_out_just_txt
 string status_bar_notification_info_overflow
 string text_title
 string title_activity_login
+string to_begin_just_txt
+string user_email_just_txt
+string username_just_username
 string welcome
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -3925,6 +3943,7 @@ styleable Carousel carousel_backwardTransition carousel_emptyViewsBehavior carou
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color civ_fill_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize
@@ -4044,7 +4063,7 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable com_facebook_like_view com_facebook_auxiliary_view_position com_facebook_foreground_color com_facebook_horizontal_alignment com_facebook_object_id com_facebook_object_type com_facebook_style
-styleable com_facebook_login_view com_facebook_confirm_logout com_facebook_login_button_radius com_facebook_login_button_transparency com_facebook_login_text com_facebook_logout_text com_facebook_tooltip_mode
+styleable com_facebook_login_view com_facebook_confirm_logout com_facebook_login_text com_facebook_logout_text com_facebook_tooltip_mode
 styleable com_facebook_profile_picture_view com_facebook_is_cropped com_facebook_preset_size
 styleable include constraintSet
 xml image_share_filepaths

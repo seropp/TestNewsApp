@@ -26,25 +26,6 @@
 
         </ImageView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-            android:nextFocusLeft="@id/main_icon"
-            android:padding="8dp">
-
-
-
-            <ImageButton
-                android:id="@+id/button_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_weight="0.1"
-
-                android:src="@drawable/ic_baseline_settings_24" />
-
-        </LinearLayout>
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -142,5 +123,11 @@
 
     </androidx.viewpager.widget.ViewPager>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/purple_200" />
 
 </RelativeLayout>
