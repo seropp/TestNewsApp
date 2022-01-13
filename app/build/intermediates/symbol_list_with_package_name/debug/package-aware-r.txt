@@ -1949,6 +1949,7 @@ drawable fui_ic_twitter_bird_white_24dp
 drawable fui_ic_yahoo_24dp
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_baseline_bookmark_24
 drawable ic_baseline_self_improvement_24
 drawable ic_baseline_settings_24
 drawable ic_baseline_share_24
@@ -2604,6 +2605,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id web_view
+id web_view_bookmarks_bt
 id web_view_share_bt
 id welcome_back_email_link_body
 id welcome_back_idp_button

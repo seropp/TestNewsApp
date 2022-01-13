@@ -15,7 +15,7 @@ class WorkWithBookmarks {
             .child(idForItem).setValue(headline)
     }
 
-    private fun idGenerator(str: String): String{
+    fun idGenerator(str: String): String{
         val bigInteger = BigInteger(1, str.encodeToByteArray())
         return java.lang.String.format("%0" + ( str.encodeToByteArray().size shl 1).toString() + "X", bigInteger)
     }

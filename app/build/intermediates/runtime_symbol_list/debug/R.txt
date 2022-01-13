@@ -1948,6 +1948,7 @@ int drawable fui_ic_twitter_bird_white_24dp 0x7f070099
 int drawable fui_ic_yahoo_24dp 0x7f07009a
 int drawable googleg_disabled_color_18 0x7f07009b
 int drawable googleg_standard_color_18 0x7f07009c
+int drawable ic_baseline_bookmark_24 0x7f0700d9
 int drawable ic_baseline_self_improvement_24 0x7f07009d
 int drawable ic_baseline_settings_24 0x7f07009e
 int drawable ic_baseline_share_24 0x7f07009f
@@ -2603,6 +2604,7 @@ int id view_tree_view_model_store_owner 0x7f08024b
 int id visible 0x7f08024c
 int id visible_removing_fragment_view_tag 0x7f08024d
 int id web_view 0x7f08024e
+int id web_view_bookmarks_bt 0x7f080264
 int id web_view_share_bt 0x7f08024f
 int id welcome_back_email_link_body 0x7f080250
 int id welcome_back_idp_button 0x7f080251

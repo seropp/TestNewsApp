@@ -24,6 +24,13 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.iCardView.setOnClickListener {
             val intent: Intent = Intent(context, WebView::class.java)
+            intent.putExtra("title", newsHLArrayList[position].title)
+            intent.putExtra("description", newsHLArrayList[position].description)
+            intent.putExtra("content", newsHLArrayList[position].content)
+            intent.putExtra("publishedAt", newsHLArrayList[position].publishedAt)
+            intent.putExtra("author", newsHLArrayList[position].author)
+            intent.putExtra("source", newsHLArrayList[position].source!!.name)
+            intent.putExtra("imageUrl", newsHLArrayList[position].urlToImage)
             intent.putExtra("url", newsHLArrayList[position].url)
             context?.startActivity(intent)
         }

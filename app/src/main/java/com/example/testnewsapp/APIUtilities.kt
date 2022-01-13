@@ -92,7 +92,6 @@ class RequestManagerForNewsAPI {
     private fun getCountry(): String {
         return "ru"
 
-        // some code
     }
 }
 
