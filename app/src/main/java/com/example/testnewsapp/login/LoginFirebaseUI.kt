@@ -9,7 +9,6 @@ import com.example.testnewsapp.R
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.FirebaseAuth
 
 class LoginFirebaseUI : AppCompatActivity() {
 
@@ -22,6 +21,8 @@ class LoginFirebaseUI : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         createLoginUI()
     }
+
+
 
     private fun createLoginUI() {
         val providers = arrayListOf<AuthUI.IdpConfig>(

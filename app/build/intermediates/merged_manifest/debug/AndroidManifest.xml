@@ -23,6 +23,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.TestNewsApp" >
         <activity
+            android:name="com.example.testnewsapp.bookmarks.Bookmarks"
+            android:exported="false" />
+        <activity
             android:name="com.example.testnewsapp.login.LoginFirebaseUI"
             android:exported="false" />
         <activity

@@ -2,9 +2,8 @@ package com.example.testnewsapp.models
 
 class NewsApiResponse {
 
-    var status: String? = null
-    var totalResults: Int? = null
-    var articles: ArrayList<NewsHeadLines>? = null
+
+    var articles: ArrayList<NewsClass>? = null
 }
 
 class Source {
@@ -13,7 +12,7 @@ class Source {
     var name: String? = null
 }
 
-class NewsHeadLines {
+class NewsClass {
 
     var source: Source? = null
 

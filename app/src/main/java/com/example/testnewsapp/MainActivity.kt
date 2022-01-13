@@ -23,16 +23,12 @@ class MainActivity : AppCompatActivity() {
     var mHealth: TabItem? = null
     var mEntertainment: TabItem? = null
 
-
-
     lateinit var tabLayout: TabLayout
     lateinit var pagerAdapter: PagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
         mToolbar = findViewById(R.id.toolbar)
         setSupportActionBar(mToolbar)
@@ -45,12 +41,7 @@ class MainActivity : AppCompatActivity() {
         mHealth = findViewById(R.id.health)
         mEntertainment = findViewById(R.id.entertainment)
 
-
         tabLayout = findViewById(R.id.include)
-
-
-
-
 
         categorySwipe()
     }

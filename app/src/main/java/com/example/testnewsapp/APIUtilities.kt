@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsApiResponse
-import com.example.testnewsapp.models.NewsHeadLines
+import com.example.testnewsapp.models.NewsClass
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -17,7 +17,7 @@ class RequestManagerForNewsAPI {
 
     fun findEverythingNews(
         context: Context?,
-        list: ArrayList<NewsHeadLines>,
+        list: ArrayList<NewsClass>,
         newsAdapter: NewsAdapter
     ) {
         val query1: String? = "????"
@@ -39,7 +39,7 @@ class RequestManagerForNewsAPI {
     fun findHeadlinesNews(
         context: Context?,
         category: String,
-        list: ArrayList<NewsHeadLines>,
+        list: ArrayList<NewsClass>,
         newsAdapter: NewsAdapter,
         query: String? = null
     ) {
@@ -57,7 +57,7 @@ class RequestManagerForNewsAPI {
         call: Call<NewsApiResponse>,
         context: Context?,
         newsAdapter: NewsAdapter,
-        list: ArrayList<NewsHeadLines>
+        list: ArrayList<NewsClass>
     ) {
         call.enqueue(object : Callback<NewsApiResponse> {
             override fun onResponse(

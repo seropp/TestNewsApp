@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnBeginTo: Button
     private lateinit var users: DatabaseReference
     private lateinit var currentUserReference: DatabaseReference
+    private lateinit var bookMarks: DatabaseReference
 
 
     companion object {
@@ -82,6 +83,7 @@ class LoginActivity : AppCompatActivity() {
                 "name" to auth.displayName,
             )
             currentUserReference.updateChildren(userMap)
+            bookMarks = currentUserReference.child("bookmarks")
         }
     }
 }

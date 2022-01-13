@@ -4,15 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.testnewsapp.R
 import com.example.testnewsapp.WebView
-import com.example.testnewsapp.models.NewsHeadLines
+import com.example.testnewsapp.models.NewsClass
 
 
-class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsHeadLines>) :
+class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClass>) :
     RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

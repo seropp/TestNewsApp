@@ -2105,6 +2105,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bookmarks_recycler_view
 id bottom
 id bounce
 id bounceBoth
@@ -2453,6 +2454,7 @@ id rightToLeft
 id right_icon
 id right_side
 id root
+id root_view_business
 id rounded
 id row_index_key
 id save_non_transition_alpha
@@ -2686,6 +2688,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_bookmarks
 layout activity_login
 layout activity_main
 layout activity_web_view

@@ -2104,6 +2104,7 @@ int id beginOnFirstDraw 0x7f08005d
 int id beginning 0x7f08005e
 int id bestChoice 0x7f08005f
 int id blocking 0x7f080060
+int id bookmarks_recycler_view 0x7f080261
 int id bottom 0x7f080061
 int id bounce 0x7f080062
 int id bounceBoth 0x7f080063
@@ -2452,6 +2453,7 @@ int id rightToLeft 0x7f0801b6
 int id right_icon 0x7f0801b7
 int id right_side 0x7f0801b8
 int id root 0x7f0801b9
+int id root_view_business 0x7f080263
 int id rounded 0x7f0801ba
 int id row_index_key 0x7f0801bb
 int id save_non_transition_alpha 0x7f0801bc
@@ -2685,6 +2687,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_bookmarks 0x7f0b00ac
 int layout activity_login 0x7f0b001c
 int layout activity_main 0x7f0b001e
 int layout activity_web_view 0x7f0b001f
