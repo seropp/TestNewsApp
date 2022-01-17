@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_btn_headlines"
+        android:icon="@drawable/navigation_headlines"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_btn_bookmarks"
+        android:icon="@drawable/navigation_bookmarks"
+        android:title="Bookmarks" />
+
+
+    <item
+        android:id="@+id/navigation_btn_everything"
+        android:icon="@drawable/navigation_everything"
+
+        android:title="Everything" />
+
+    <item
+        android:id="@+id/navigation_btn_statistic"
+        android:icon="@drawable/navigation_statistic"
+        android:title="Statistic" />
+
+    <item
+        android:id="@+id/navigation_btn_setting"
+        android:icon="@drawable/navigation_setting"
+        android:title="Setting" />
+
+</menu>
