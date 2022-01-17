@@ -1,9 +1,9 @@
 com/example/testnewsapp/databinding/ItemLayoutBinding.java
  com.example.testnewsapp.databinding.ItemLayoutBinding
+com/example/testnewsapp/databinding/BookmarksFragmentBinding.java
+ com.example.testnewsapp.databinding.BookmarksFragmentBinding
 com/example/testnewsapp/databinding/EntertainmentFragmentBinding.java
  com.example.testnewsapp.databinding.EntertainmentFragmentBinding
-com/example/testnewsapp/databinding/ActivityBookmarksBinding.java
- com.example.testnewsapp.databinding.ActivityBookmarksBinding
 com/example/testnewsapp/DataBindingTriggerClass.java
  com.example.testnewsapp.DataBindingTriggerClass
 com/example/testnewsapp/databinding/TechnologyFragmentBinding.java
@@ -24,5 +24,7 @@ com/example/testnewsapp/databinding/HomeFragmentBinding.java
  com.example.testnewsapp.databinding.HomeFragmentBinding
 com/example/testnewsapp/databinding/ActivityLoginBinding.java
  com.example.testnewsapp.databinding.ActivityLoginBinding
+com/example/testnewsapp/databinding/EverythingNewFragmentBinding.java
+ com.example.testnewsapp.databinding.EverythingNewFragmentBinding
 com/example/testnewsapp/databinding/ScienceFragmentBinding.java
  com.example.testnewsapp.databinding.ScienceFragmentBinding

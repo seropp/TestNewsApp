@@ -1991,7 +1991,12 @@ drawable mtrl_navigation_bar_item_background
 drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
+drawable navigation_bookmarks
 drawable navigation_empty_icon
+drawable navigation_everything
+drawable navigation_headlines
+drawable navigation_setting
+drawable navigation_statistic
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -2106,8 +2111,8 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
-id bookmarks_recycler_view
 id bottom
+id bottom_navigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -2124,6 +2129,7 @@ id btn_signout
 id btn_to_begin_login
 id business
 id button
+id button2
 id buttonPanel
 id button_continue
 id button_create
@@ -2138,6 +2144,7 @@ id cancel_button
 id cardView
 id card_view_business
 id card_view_entertainment
+id card_view_everything
 id card_view_health
 id card_view_home
 id card_view_science
@@ -2257,7 +2264,8 @@ id fixed
 id flip
 id floating
 id forever
-id fragment_container
+id fragment_container_for_categories
+id fragment_container_for_navigation
 id fragment_container_view_tag
 id fragment_phone
 id fragment_register_email
@@ -2392,6 +2400,11 @@ id navigation_bar_item_icon_view
 id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
+id navigation_btn_bookmarks
+id navigation_btn_everything
+id navigation_btn_headlines
+id navigation_btn_setting
+id navigation_btn_statistic
 id navigation_header_container
 id never
 id neverCompleteToEnd
@@ -2442,6 +2455,7 @@ id ratio
 id rectangles
 id recycler_view_of_business
 id recycler_view_of_entertainment
+id recycler_view_of_everythig
 id recycler_view_of_health
 id recycler_view_of_home
 id recycler_view_of_science
@@ -2476,6 +2490,7 @@ id search_button
 id search_close_btn
 id search_edit_frame
 id search_entertainment
+id search_everything
 id search_go_btn
 id search_health
 id search_home
@@ -2690,10 +2705,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_bookmarks
 layout activity_login
 layout activity_main
 layout activity_web_view
+layout bookmarks_fragment
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout business_fragment
@@ -2719,6 +2734,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout entertainment_fragment
+layout everything_new_fragment
 layout fui_activity_invisible
 layout fui_activity_register_email
 layout fui_activity_register_phone
@@ -2834,6 +2850,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu bottom_navigation
 menu example_menu
 menu example_menu2
 mipmap ic_launcher

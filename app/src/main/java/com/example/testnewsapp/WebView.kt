@@ -75,7 +75,7 @@ class WebView : AppCompatActivity() {
             bookmarks.child("source").child("name").setValue(source)
             bookmarks.child("title").setValue(title)
             bookmarks.child("url").setValue(url)
-            bookmarks.child("urlToImage").setValue(imageUrl)
+            bookmarks.child("").setValue(imageUrl)
                 Toast.makeText(this, "Bookmark added", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(

@@ -18,18 +18,19 @@ class RequestManagerForNewsAPI {
     fun findEverythingNews(
         context: Context?,
         list: ArrayList<NewsClass>,
-        newsAdapter: NewsAdapter
+        newsAdapter: NewsAdapter,
+        query: String? = null
     ) {
         val query1: String? = "????"
         val sources1: String? = "????"
         val language1: String? = "????"
-        var key1: String = context!!.getString(R.string.api_key2);
+
 
 
         val call = getInterfaceAPI()!!
             .callEverything(
-                null, "CNN,techcrunch",
-                "en", "74a1692513764c3e9a7aedb4a5dbc090"
+                query, null,
+                "en", R.string.api_key.toString()
             )
 
         requestToAPI(call, context, newsAdapter, list)
@@ -43,12 +44,12 @@ class RequestManagerForNewsAPI {
         newsAdapter: NewsAdapter,
         query: String? = null
     ) {
-        val sources1: String? = "????"
+
         val country = getCountry()
-        var key: String = context!!.getString(R.string.api_key2);
+
 
         val call = getInterfaceAPI()!!
-            .callHeadLinesNews(query, country, category, "74a1692513764c3e9a7aedb4a5dbc090")
+            .callHeadLinesNews(query, country, category, R.string.api_key.toString())
 
         requestToAPI(call, context, newsAdapter, list)
     }

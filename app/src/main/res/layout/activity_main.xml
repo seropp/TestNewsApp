@@ -36,8 +36,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/include"
         android:layout_width="match_parent"
@@ -111,16 +109,31 @@
 
 
     </com.google.android.material.tabs.TabLayout>
+
     </LinearLayout>
+
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/fragment_container"
+        android:id="@+id/fragment_container_for_categories"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/linear"
         android:layout_marginTop="2dp">
-
-
     </androidx.viewpager.widget.ViewPager>
 
+    <FrameLayout
+        android:id="@+id/fragment_container_for_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="2dp"></FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"
+        android:background="@color/purple_200"
+        />
 
 </RelativeLayout>
