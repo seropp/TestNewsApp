@@ -327,7 +327,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../AndroidSDK/Android/Sdk/icons/material/materialicons/home/baseline_home_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../AndroidSDK/Android/Sdk/icons/material/materialicons/share/baseline_share_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -337,7 +337,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="navigation_headlines" />
+                            <entry key="color" value="0405a9" />
+                            <entry key="outputName" value="ic_baseline_share_24" />
                             <entry key="sourceFile" value="E:\TestNewsApp" />
                           </map>
                         </option>

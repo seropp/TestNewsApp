@@ -1,5 +1,6 @@
 package com.example.testnewsapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.FrameStats
@@ -11,6 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.testnewsapp.adapter.PagerAdapter
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
 import com.example.testnewsapp.categoryFragments.*
+import com.example.testnewsapp.login.LoginFirebaseUI
 import com.example.testnewsapp.navigation_fragments.BookmarksFragment
 import com.example.testnewsapp.navigation_fragments.EverythingNewsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
 
                     R.id.navigation_btn_headlines -> {
-                        selectedFragment1 = HomeFragment()
+                        startActivity(Intent(this@MainActivity, MainActivity::class.java))
 
                     }
                     R.id.navigation_btn_bookmarks -> {
@@ -93,7 +95,6 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container_for_categories, selectedFragment1).commit()
                 } else if (selectedFragment2 != null) {
-
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container_for_navigation, selectedFragment2).commit()
                 } else {
@@ -136,4 +137,5 @@ class MainActivity : AppCompatActivity() {
         })
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
     }
+
 }

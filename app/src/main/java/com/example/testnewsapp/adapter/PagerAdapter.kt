@@ -26,4 +26,6 @@ class PagerAdapter(fm: FragmentManager, behavior: Int, private var tabCount: Int
     override fun getCount(): Int {
         return tabCount
     }
+
+
 }

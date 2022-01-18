@@ -50,4 +50,5 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
     override fun getItemCount(): Int {
         return newsHLArrayList.size
     }
+
 }

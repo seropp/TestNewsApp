@@ -2,9 +2,11 @@ package com.example.testnewsapp
 
 import android.content.Context
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsApiResponse
 import com.example.testnewsapp.models.NewsClass
+import okhttp3.Cache.key
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,6 +15,7 @@ import retrofit2.http.Query
 
 
 class RequestManagerForNewsAPI {
+
     private var retrofit: Retrofit? = null
 
     fun findEverythingNews(
@@ -21,17 +24,12 @@ class RequestManagerForNewsAPI {
         newsAdapter: NewsAdapter,
         query: String? = null
     ) {
-        val query1: String? = "????"
-        val sources1: String? = "????"
-        val language1: String? = "????"
 
+        val apiKey: String = context!!.getString(R.string.api_key);
 
 
         val call = getInterfaceAPI()!!
-            .callEverything(
-                query, null,
-                "en", R.string.api_key.toString()
-            )
+            .callEverything(query,"cnn","ru", apiKey)
 
         requestToAPI(call, context, newsAdapter, list)
 
@@ -44,14 +42,14 @@ class RequestManagerForNewsAPI {
         newsAdapter: NewsAdapter,
         query: String? = null
     ) {
-
+        val sources1: String? = "????"
         val country = getCountry()
-
+        val apiKey: String = context!!.getString(R.string.api_key);
 
         val call = getInterfaceAPI()!!
-            .callHeadLinesNews(query, country, category, R.string.api_key.toString())
+            .callHeadLinesNews(query, country, category, apiKey)
 
-        requestToAPI(call, context, newsAdapter, list)
+        requestToAPI(call, context, newsAdapter, list)  
     }
 
     private fun requestToAPI(
