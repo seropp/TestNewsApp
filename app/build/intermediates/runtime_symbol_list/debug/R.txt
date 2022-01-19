@@ -2263,8 +2263,9 @@ int id fixed 0x7f0800f6
 int id flip 0x7f0800f7
 int id floating 0x7f0800f8
 int id forever 0x7f0800f9
+int id fragment_container 0x7f080270
+int id fragment_container1 0x7f080271
 int id fragment_container_for_categories 0x7f0800fa
-int id fragment_container_for_navigation 0x7f0800fb
 int id fragment_container_view_tag 0x7f0800fc
 int id fragment_phone 0x7f0800fd
 int id fragment_register_email 0x7f0800fe
@@ -2838,6 +2839,7 @@ int layout test_action_chip 0x7f0b009e
 int layout test_chip_zero_corner_radius 0x7f0b009f
 int layout test_design_checkbox 0x7f0b00a0
 int layout test_design_radiobutton 0x7f0b00a1
+int layout test_fragment 0x7f0b00b0
 int layout test_navigation_bar_item_layout 0x7f0b00a2
 int layout test_reflow_chipgroup 0x7f0b00a3
 int layout test_toolbar 0x7f0b00a4

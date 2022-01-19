@@ -25,18 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mToolbar: Toolbar
 
-    var mHome: TabItem? = null
-    var mScience: TabItem? = null
-    var mTechnology: TabItem? = null
-    var mBusiness: TabItem? = null
-    var mSports: TabItem? = null
-    var mHealth: TabItem? = null
-    var mEntertainment: TabItem? = null
-
-    lateinit var tabLayout: TabLayout
-    lateinit var pagerAdapter: PagerAdapter
-
-    private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,41 +34,34 @@ class MainActivity : AppCompatActivity() {
         mToolbar = findViewById(R.id.toolbar)
         setSupportActionBar(mToolbar)
 
-        mHome = findViewById(R.id.home)
-        mScience = findViewById(R.id.science)
-        mTechnology = findViewById(R.id.technology)
-        mBusiness = findViewById(R.id.business)
-        mSports = findViewById(R.id.sports)
-        mHealth = findViewById(R.id.health)
-        mEntertainment = findViewById(R.id.entertainment)
 
-        tabLayout = findViewById(R.id.include)
 
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setOnNavigationItemSelectedListener(navListener)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container_for_categories, HomeFragment()).commit()
-        categorySwipe()
+
     }
 
     private var navListener: BottomNavigationView.OnNavigationItemSelectedListener =
         object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-                val viewPager: ViewPager = findViewById(R.id.fragment_container_for_categories)
 
-                var selectedFragment1: Fragment? = null
-                var selectedFragment2: Fragment? = null
+
+//                var selectedFragment1: Fragment? = null
+                var selectedFragment: Fragment? = null
 
                 when (item.itemId) {
 
                     R.id.navigation_btn_headlines -> {
+//                        selectedFragment1 = TestFragment()
                         startActivity(Intent(this@MainActivity, MainActivity::class.java))
 
                     }
                     R.id.navigation_btn_bookmarks -> {
-                        if (user != null) {
-                            selectedFragment2 = BookmarksFragment()
+                        if (FirebaseAuth.getInstance().currentUser != null) {
+                            selectedFragment = BookmarksFragment()
                         } else {
                             Toast.makeText(
                                 this@MainActivity,
@@ -89,53 +70,30 @@ class MainActivity : AppCompatActivity() {
                             ).show()
                         }
                     }
-                    R.id.navigation_btn_everything -> selectedFragment2 = EverythingNewsFragment()
+                    R.id.navigation_btn_everything -> selectedFragment = EverythingNewsFragment()
                 }
-                if (selectedFragment1 != null) {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_for_categories, selectedFragment1).commit()
-                } else if (selectedFragment2 != null) {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_for_navigation, selectedFragment2).commit()
-                } else {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "ALL NULL",
-                        Toast.LENGTH_LONG
-                    ).show()
+                when {
+//                    selectedFragment1 != null -> {
+//                        supportFragmentManager.beginTransaction()
+//                            .replace(R.id.fragment_container1, selectedFragment1).commit()
+//                    }
+                    selectedFragment != null -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, selectedFragment).commit()
+                    }
+                    else -> {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "ALL NULL",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
-
-
                 return true
             }
 
         }
 
-    private fun categorySwipe() {
-        val viewPager: ViewPager = findViewById(R.id.fragment_container_for_categories)
-        pagerAdapter = PagerAdapter(supportFragmentManager, 7)
-        viewPager.adapter = pagerAdapter
 
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                viewPager.currentItem = tab!!.position
-
-                if (tab.position == 0 || tab.position == 1 || tab.position == 2 || tab.position == 3 ||
-                    tab.position == 4 || tab.position == 5 || tab.position == 6
-                ) {
-                    pagerAdapter.notifyDataSetChanged()
-                }
-            }
-
-        })
-        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
-    }
 
 }

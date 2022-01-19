@@ -2264,8 +2264,9 @@ id fixed
 id flip
 id floating
 id forever
+id fragment_container
+id fragment_container1
 id fragment_container_for_categories
-id fragment_container_for_navigation
 id fragment_container_view_tag
 id fragment_phone
 id fragment_register_email
@@ -2839,6 +2840,7 @@ layout test_action_chip
 layout test_chip_zero_corner_radius
 layout test_design_checkbox
 layout test_design_radiobutton
+layout test_fragment
 layout test_navigation_bar_item_layout
 layout test_reflow_chipgroup
 layout test_toolbar

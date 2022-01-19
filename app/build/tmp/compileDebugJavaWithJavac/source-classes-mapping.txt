@@ -1,5 +1,7 @@
 com/example/testnewsapp/databinding/ItemLayoutBinding.java
  com.example.testnewsapp.databinding.ItemLayoutBinding
+com/example/testnewsapp/databinding/TestFragmentBinding.java
+ com.example.testnewsapp.databinding.TestFragmentBinding
 com/example/testnewsapp/databinding/BookmarksFragmentBinding.java
  com.example.testnewsapp.databinding.BookmarksFragmentBinding
 com/example/testnewsapp/databinding/EntertainmentFragmentBinding.java
