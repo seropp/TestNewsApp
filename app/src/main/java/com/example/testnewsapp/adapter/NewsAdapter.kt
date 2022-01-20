@@ -13,7 +13,8 @@ import com.example.testnewsapp.models.NewsClass
 
 class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClass>) :
     RecyclerView.Adapter<ViewHolder>() {
-
+// ListAdapter
+    //applylist() ->
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context)

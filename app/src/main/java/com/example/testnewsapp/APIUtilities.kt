@@ -29,7 +29,7 @@ class RequestManagerForNewsAPI {
 
 
         val call = getInterfaceAPI()!!
-            .callEverything(query,"cnn","ru", apiKey)
+            .callEverything(query,null,"en", apiKey)
 
         requestToAPI(call, context, newsAdapter, list)
 

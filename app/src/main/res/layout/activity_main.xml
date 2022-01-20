@@ -36,22 +36,9 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="2dp">
-
-
-        <fragment
-            android:id="@+id/fragment_container1"
-            android:name="com.example.testnewsapp.TestFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/toolbar" />
-
     </FrameLayout>
-    <!--    <androidx.fragment.app.FragmentContainerView-->
-    <!--        android:id="@+id/fragment_container1"-->
-    <!--        android:name="com.example.testnewsapp.TestFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_below="@id/toolbar" />-->
+
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

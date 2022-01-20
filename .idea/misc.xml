@@ -22,7 +22,8 @@
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/businessfragment.xml" value="0.25416666666666665" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/entertainment_fragment.xml" value="0.1" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/entertainmentfragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/TestNewsApp/app/src/main/res/layout/health_fragment.xml" value="0.1" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/headlines_fragment.xml" value="0.23854166666666668" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/health_fragment.xml" value="0.264" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/healthfragment.xml" value="0.25416666666666665" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/home_fragment.xml" value="0.1" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/homefragment.xml" value="0.25416666666666665" />
@@ -35,7 +36,7 @@
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/sportsfragment.xml" value="0.25416666666666665" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/technology_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/technologyfragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/TestNewsApp/app/src/main/res/layout/test_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/test_fragment.xml" value="0.264" />
         <entry key="..\:/TestNewsApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
         <entry key="..\:/TestNewsApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2703125" />
       </map>

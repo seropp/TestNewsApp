@@ -38,8 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setOnNavigationItemSelectedListener(navListener)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_for_categories, HomeFragment()).commit()
+
+        bottomNav.selectedItemId = R.id.navigation_btn_headlines
+
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragment_container_for_categories, HomeFragment()).commit()
 
     }
 
@@ -55,8 +58,8 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
 
                     R.id.navigation_btn_headlines -> {
-//                        selectedFragment1 = TestFragment()
-                        startActivity(Intent(this@MainActivity, MainActivity::class.java))
+                        selectedFragment = TestFragment()
+//                        startActivity(Intent(this@MainActivity, MainActivity::class.java))
 
                     }
                     R.id.navigation_btn_bookmarks -> {
@@ -73,13 +76,12 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_btn_everything -> selectedFragment = EverythingNewsFragment()
                 }
                 when {
-//                    selectedFragment1 != null -> {
-//                        supportFragmentManager.beginTransaction()
-//                            .replace(R.id.fragment_container1, selectedFragment1).commit()
-//                    }
+
                     selectedFragment != null -> {
+
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.fragment_container, selectedFragment).commit()
+
                     }
                     else -> {
                         Toast.makeText(

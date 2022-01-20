@@ -2,21 +2,12 @@ package com.example.testnewsapp
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.testnewsapp.adapter.PagerAdapter
-import com.example.testnewsapp.categoryFragments.HomeFragment
-import com.example.testnewsapp.navigation_fragments.BookmarksFragment
-import com.example.testnewsapp.navigation_fragments.EverythingNewsFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-
 
 
 class TestFragment : Fragment() {

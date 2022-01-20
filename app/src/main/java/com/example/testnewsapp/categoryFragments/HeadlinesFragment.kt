@@ -1,6 +1,9 @@
 package com.example.testnewsapp.categoryFragments
 
+import android.R.attr
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.annotation.Nullable
@@ -16,15 +19,15 @@ import com.example.testnewsapp.bookmarks.WorkWithBookmarks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlin.collections.ArrayList
+import android.R.attr.defaultValue
 
 
-class BusinessFragment : Fragment() {
+class HeadlinesFragment(var category: String) : Fragment() {
 
-    private lateinit var recyclerViewFromBusiness: RecyclerView
-    private lateinit var newsClassArrayList: ArrayList<NewsClass>
+    private lateinit var headlinesRecyclerView: RecyclerView
+    private lateinit var list: ArrayList<NewsClass>
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var searchView: SearchView
-    private val category: String = "business"
 
     private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
@@ -35,13 +38,13 @@ class BusinessFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var view: View = inflater.inflate(R.layout.business_fragment, null)
-
-//        initDatabase()
+        var view: View = inflater.inflate(R.layout.headlines_fragment, null)
 
 
-        recyclerViewFromBusiness = view.findViewById(R.id.recycler_view_of_business)
-        searchView = view.findViewById(R.id.search_business)
+        Log.i(TAG, "Это мое сообщение для записи в журнале  $category");
+
+        headlinesRecyclerView = view.findViewById(R.id.recycler_view_of_headlines)
+        searchView = view.findViewById(R.id.search_for_headlines)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 init()
@@ -49,7 +52,7 @@ class BusinessFragment : Fragment() {
                 manager.findHeadlinesNews(
                     context,
                     category,
-                    newsClassArrayList,
+                    list,
                     newsAdapter,
                     query
                 )
@@ -64,16 +67,16 @@ class BusinessFragment : Fragment() {
         init()
 
         val manager = RequestManagerForNewsAPI()
-        manager.findHeadlinesNews(context, category, newsClassArrayList, newsAdapter)
+        manager.findHeadlinesNews(context, category, list, newsAdapter)
         return view
 
     }
 
     private fun init() {
-        newsClassArrayList = ArrayList()
-        recyclerViewFromBusiness.layoutManager = LinearLayoutManager(context)
-        newsAdapter = NewsAdapter(context, newsClassArrayList)
-        recyclerViewFromBusiness.adapter = newsAdapter
+        list = ArrayList()
+        headlinesRecyclerView.layoutManager = LinearLayoutManager(context)
+        newsAdapter = NewsAdapter(context, list)
+        headlinesRecyclerView.adapter = newsAdapter
     }
 
 
@@ -96,4 +99,5 @@ class BusinessFragment : Fragment() {
             else -> super.onContextItemSelected(item)
         }
     }
+
 }

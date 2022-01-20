@@ -5,14 +5,14 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_health"
+        android:id="@+id/card_view_headlines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="9dp"
         app:cardElevation="8dp">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_health"
+            android:id="@+id/search_for_headlines"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:defaultQueryHint="Search news..."
@@ -22,10 +22,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_of_health"
+        android:id="@+id/recycler_view_of_headlines"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/card_view_health"
+        android:layout_below="@+id/card_view_headlines"
         android:layout_marginTop="2dp"
         android:fitsSystemWindows="true"
         android:padding="2dp">
