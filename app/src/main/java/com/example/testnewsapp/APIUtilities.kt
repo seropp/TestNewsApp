@@ -14,48 +14,54 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-class RequestManagerForNewsAPI {
+class RequestManagerForNewsAPI(val context: Context, val adapter: NewsAdapter) {
 
     private var retrofit: Retrofit? = null
 
     fun findEverythingNews(
-        context: Context?,
         list: ArrayList<NewsClass>,
-        newsAdapter: NewsAdapter,
-        query: String? = null
+        language: String? = "en",
+        sources: String? = "",
+        query: String?
     ) {
 
         val apiKey: String = context!!.getString(R.string.api_key);
-
+        val string_sources = ""
 
         val call = getInterfaceAPI()!!
-            .callEverything(query,null,"en", apiKey)
+            .callEverything(
+                query = null,
+                sources  = string_sources,
+                language = "en",
+                api_key = apiKey)
 
-        requestToAPI(call, context, newsAdapter, list)
+        requestToAPI(call, list)
 
     }
 
     fun findHeadlinesNews(
-        context: Context?,
         category: String,
         list: ArrayList<NewsClass>,
-        newsAdapter: NewsAdapter,
-        query: String? = null
+        country: String? = "ru",
+        sources: String? = null,
+        query: String?
     ) {
-        val sources1: String? = "????"
-        val country = getCountry()
+
         val apiKey: String = context!!.getString(R.string.api_key);
 
         val call = getInterfaceAPI()!!
-            .callHeadLinesNews(query, country, category, apiKey)
+            .callHeadLinesNews(
+                q = query,
+                country = country,
+                category = category,
+                sources = sources,
+                apiKey)
 
-        requestToAPI(call, context, newsAdapter, list)  
+        requestToAPI(call, list)
     }
 
     private fun requestToAPI(
         call: Call<NewsApiResponse>,
-        context: Context?,
-        newsAdapter: NewsAdapter,
         list: ArrayList<NewsClass>
     ) {
         call.enqueue(object : Callback<NewsApiResponse> {
@@ -67,7 +73,7 @@ class RequestManagerForNewsAPI {
 
                 if (response.isSuccessful) {
                     list.addAll(response.body()!!.articles!!)
-                    newsAdapter.notifyDataSetChanged()
+                    adapter.notifyDataSetChanged()
                 } else {
                     Toast.makeText(context, "$statusCode Bad request", Toast.LENGTH_LONG)
                         .show()
@@ -88,10 +94,6 @@ class RequestManagerForNewsAPI {
         return retrofit!!.create(InterfaceCallApi::class.java)
     }
 
-    private fun getCountry(): String {
-        return "ru"
-
-    }
 }
 
 interface InterfaceCallApi {
@@ -99,9 +101,10 @@ interface InterfaceCallApi {
 
     @GET("top-headlines")
     fun callHeadLinesNews(
-        @Query("q") query: String?,
+        @Query("q") q: String?,
         @Query("country") country: String?,
         @Query("category") category: String?,
+        @Query("sources") sources: String?,
         @Query("apiKey") api_key: String?,
     ): Call<NewsApiResponse>
 

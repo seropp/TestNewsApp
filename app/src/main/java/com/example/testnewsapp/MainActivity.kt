@@ -1,25 +1,16 @@
 package com.example.testnewsapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.FrameStats
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import com.example.testnewsapp.adapter.PagerAdapter
-import com.example.testnewsapp.bookmarks.WorkWithBookmarks
-import com.example.testnewsapp.categoryFragments.*
-import com.example.testnewsapp.login.LoginFirebaseUI
+import com.example.testnewsapp.headlines_categories.*
 import com.example.testnewsapp.navigation_fragments.BookmarksFragment
-import com.example.testnewsapp.navigation_fragments.EverythingNewsFragment
+import com.example.testnewsapp.headlines_categories.EverythingNewsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabItem
-import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
 
                     R.id.navigation_btn_headlines -> {
-                        selectedFragment = TestFragment()
+                        selectedFragment = CategoriesFragment()
 //                        startActivity(Intent(this@MainActivity, MainActivity::class.java))
 
                     }

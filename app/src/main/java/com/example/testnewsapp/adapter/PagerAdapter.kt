@@ -1,13 +1,9 @@
 package com.example.testnewsapp.adapter
 
-import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.testnewsapp.categoryFragments.*
-import retrofit2.http.Query
-import android.os.Bundle
-import android.R.id
+import com.example.testnewsapp.headlines_categories.*
 
 
 class PagerAdapter(fm: FragmentManager, behavior: Int, private var tabCount: Int = behavior) :
