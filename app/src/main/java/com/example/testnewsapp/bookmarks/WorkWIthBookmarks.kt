@@ -1,22 +1,46 @@
 package com.example.testnewsapp.bookmarks
 
+import android.content.Context
+import android.widget.Toast
+import com.example.testnewsapp.MainActivity
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.math.BigInteger
+import java.math.MathContext
 
 class WorkWithBookmarks {
-    fun addToBookmarks(item: Int, newsAdapter: NewsAdapter, ) {
+
+    fun addToBookmarks(item: Int, newsAdapter: NewsAdapter) {
+
         val headline = newsAdapter.newsHLArrayList[item]
         val idForItem = idGenerator(headline.url!!)
         val user = FirebaseAuth.getInstance().currentUser
+
         FirebaseDatabase.getInstance().getReference("users")
             .child(user!!.uid).child("bookmarks")
             .child(idForItem).setValue(headline)
+
     }
 
-    fun idGenerator(str: String): String{
+    fun deleteBookmark(item: Int, newsAdapter: NewsAdapter, context: Context?) {
+
+        val headline = newsAdapter.newsHLArrayList[item]
+        val idForItem = idGenerator(headline.url!!)
+        val user = FirebaseAuth.getInstance().currentUser
+
+        FirebaseDatabase.getInstance().getReference("users")
+            .child(user!!.uid).child("bookmarks")
+            .child(idForItem).removeValue().addOnFailureListener {
+                Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    fun idGenerator(str: String): String {
         val bigInteger = BigInteger(1, str.encodeToByteArray())
-        return java.lang.String.format("%0" + ( str.encodeToByteArray().size shl 1).toString() + "X", bigInteger)
+        return java.lang.String.format(
+            "%0" + (str.encodeToByteArray().size shl 1).toString() + "X",
+            bigInteger
+        )
     }
 }

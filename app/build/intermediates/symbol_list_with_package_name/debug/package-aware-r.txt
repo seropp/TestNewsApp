@@ -59,6 +59,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array choice_items
 attr SharedValue
 attr SharedValueId
 attr actionBarDivider
@@ -909,6 +910,7 @@ attr suffixText
 attr suffixTextAppearance
 attr suffixTextColor
 attr suggestionRowLayout
+attr swipeRefreshLayoutProgressSpinnerBackgroundColor
 attr switchMinWidth
 attr switchPadding
 attr switchStyle
@@ -2129,7 +2131,6 @@ id btn_signout
 id btn_to_begin_login
 id business
 id button
-id button2
 id buttonPanel
 id button_continue
 id button_create
@@ -2192,6 +2193,11 @@ id country_list_layout
 id country_list_popup_anchor
 id cross_device_linking_body
 id currentState
+id current_language
+id current_language_btn
+id current_region
+id current_region_btn
+id current_sources_btn
 id custom
 id customPanel
 id cut
@@ -2325,6 +2331,7 @@ id line3
 id linear
 id listMode
 id list_item
+id ll
 id login_email
 id login_txt_name
 id logo
@@ -2447,6 +2454,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_view_of_bookmarks
 id recycler_view_of_everything
 id recycler_view_of_headlines
 id resend_barrier
@@ -2529,6 +2537,8 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id swiped_everything
+id swiped_headlines
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -2810,6 +2820,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout settings_fragment
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius
@@ -4040,6 +4051,7 @@ styleable StateListDrawable android_dither android_visible android_variablePaddi
 styleable StateListDrawableItem android_drawable
 styleable StateSet defaultState
 styleable SupportVectorDrawablesButton drawableBottomCompat drawableEndCompat drawableStartCompat drawableTopCompat
+styleable SwipeRefreshLayout swipeRefreshLayoutProgressSpinnerBackgroundColor
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable TabItem android_icon android_layout android_text

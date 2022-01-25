@@ -6,6 +6,7 @@ import androidx.appcompat.widget.SearchView
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsApiResponse
 import com.example.testnewsapp.models.NewsClass
+import com.example.testnewsapp.models.SourcesApiResponse
 import okhttp3.Cache.key
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,19 +21,18 @@ class RequestManagerForNewsAPI(val context: Context, val adapter: NewsAdapter) {
 
     fun findEverythingNews(
         list: ArrayList<NewsClass>,
-        language: String? = "en",
-        sources: String? = "",
+        language: String?,
+        sources: String?,
         query: String?
     ) {
 
-        val apiKey: String = context!!.getString(R.string.api_key);
-        val string_sources = ""
+        val apiKey: String = context.getString(R.string.api_key);
 
         val call = getInterfaceAPI()!!
             .callEverything(
-                query = null,
-                sources  = string_sources,
-                language = "en",
+                q = query,
+                language = language,
+                sources = sources,
                 api_key = apiKey)
 
         requestToAPI(call, list)
@@ -42,19 +42,17 @@ class RequestManagerForNewsAPI(val context: Context, val adapter: NewsAdapter) {
     fun findHeadlinesNews(
         category: String,
         list: ArrayList<NewsClass>,
-        country: String? = "ru",
-        sources: String? = null,
+        country: String,
         query: String?
     ) {
 
-        val apiKey: String = context!!.getString(R.string.api_key);
+        val apiKey: String = context.getString(R.string.api_key);
 
         val call = getInterfaceAPI()!!
             .callHeadLinesNews(
                 q = query,
                 country = country,
                 category = category,
-                sources = sources,
                 apiKey)
 
         requestToAPI(call, list)
@@ -70,10 +68,10 @@ class RequestManagerForNewsAPI(val context: Context, val adapter: NewsAdapter) {
                 response: Response<NewsApiResponse>
             ) {
                 val statusCode = response.code()
-
+                list.clear()
                 if (response.isSuccessful) {
                     list.addAll(response.body()!!.articles!!)
-                    adapter.notifyDataSetChanged()
+                    adapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(context, "$statusCode Bad request", Toast.LENGTH_LONG)
                         .show()
@@ -104,15 +102,22 @@ interface InterfaceCallApi {
         @Query("q") q: String?,
         @Query("country") country: String?,
         @Query("category") category: String?,
-        @Query("sources") sources: String?,
         @Query("apiKey") api_key: String?,
     ): Call<NewsApiResponse>
 
     @GET("everything")
     fun callEverything(
-        @Query("q") query: String?,
+        @Query("q") q: String?,
         @Query("sources") sources: String?,
         @Query("language") language: String?,
         @Query("apiKey") api_key: String?,
     ): Call<NewsApiResponse>
+
+    @GET("top-headlines/sources")
+    fun callSources(
+        @Query("category") category: String?,
+        @Query("language") language: String?,
+        @Query("country") country: String?,
+        @Query("apiKey") api_key: String?
+    ): Call<SourcesApiResponse>
 }

@@ -1,9 +1,12 @@
 package com.example.testnewsapp.models
 
 class NewsApiResponse {
-
-
     var articles: ArrayList<NewsClass>? = null
+}
+
+class SourcesApiResponse {
+    var status: String = ""
+    lateinit var sources: List<Source>
 }
 
 class Source {
@@ -23,4 +26,9 @@ class NewsClass {
     var urlToImage: String? = null
     var publishedAt: String? = null
     var content: String? = null
+}
+
+
+class SourceClass{
+
 }

@@ -36,14 +36,14 @@ class WebView : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val intent: Intent = intent
-        val title: String = intent.getStringExtra("title").toString()
-        val description: String = intent.getStringExtra("description").toString()
-        val content: String = intent.getStringExtra("content").toString()
-        val publishedAt: String = intent.getStringExtra("publishedAt").toString()
-        val author: String = intent.getStringExtra("author").toString()
-        val source: String = intent.getStringExtra("source").toString()
-        val imageUrl: String = intent.getStringExtra("imageUrl").toString()
-        val url: String = intent.getStringExtra("url").toString()
+        val title: String = intent.getStringExtra("title")!!
+        val description: String = intent.getStringExtra("description")!!
+        val content: String = intent.getStringExtra("content")!!
+        val publishedAt: String = intent.getStringExtra("publishedAt")!!
+        val author: String = intent.getStringExtra("author")!!
+        val source: String = intent.getStringExtra("source")!!
+        val imageUrl: String = intent.getStringExtra("imageUrl")!!
+        val url: String = intent.getStringExtra("url")!!
 
 
         webView.webViewClient = WebViewClient()
@@ -67,7 +67,6 @@ class WebView : AppCompatActivity() {
             val bookmarks: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
                 .child(user!!.uid).child("bookmarks")
                 .child(WorkWithBookmarks().idGenerator(url))
-
             bookmarks.child("author").setValue(author)
             bookmarks.child("content").setValue(content)
             bookmarks.child("description").setValue(description)
@@ -75,7 +74,7 @@ class WebView : AppCompatActivity() {
             bookmarks.child("source").child("name").setValue(source)
             bookmarks.child("title").setValue(title)
             bookmarks.child("url").setValue(url)
-            bookmarks.child("").setValue(imageUrl)
+            bookmarks.child("urlToImage").setValue(imageUrl)
                 Toast.makeText(this, "Bookmark added", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(

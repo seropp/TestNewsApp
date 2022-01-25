@@ -1,5 +1,6 @@
 package com.example.testnewsapp.adapter
 
+
 import android.view.ContextMenu
 import android.view.View
 import android.widget.ImageView
@@ -31,9 +32,9 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnCre
         p2: ContextMenu.ContextMenuInfo?
     ) {
         menu?.setHeaderTitle("Bookmark")
-        menu?.add(adapterPosition, 101, 0, "Add to Bookmarks")
+        menu?.add(adapterPosition, 101, 0, "Add or delete bookmark")
 
     }
-
-
 }
+
+

@@ -38,6 +38,9 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
 
         holder.iTitle.text = newsHLArrayList[position].title
         holder.iDescription.text = newsHLArrayList[position].description
+        if(newsHLArrayList[position].author == null){
+            newsHLArrayList[position].author = ""
+        }
         holder.iAuthor.text = newsHLArrayList[position].author
         holder.iSource.text = newsHLArrayList[position].source!!.name
 

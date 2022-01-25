@@ -4,12 +4,12 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\navigation_statistic.xml"
     },
     {
-        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_share_24.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\ic_baseline_share_24.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_navigation_setting.xml.flat",
@@ -48,6 +48,10 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\layout_bg.xml"
     },
     {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_settings_fragment.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\settings_fragment.xml"
+    },
+    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_settings_24.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\ic_baseline_settings_24.xml"
     },
@@ -64,12 +68,12 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\item_layout.xml"
     },
     {
-        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_navigation.xml.flat",
-        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\menu\\bottom_navigation.xml"
-    },
-    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_bookmarks_fragment.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\bookmarks_fragment.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_navigation.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\menu\\bottom_navigation.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
@@ -80,12 +84,12 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_navigation_bookmarks.xml.flat",
-        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\navigation_bookmarks.xml"
-    },
-    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_categories_fragment.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\categories_fragment.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_navigation_bookmarks.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\navigation_bookmarks.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_navigation_headlines.xml.flat",
@@ -100,16 +104,16 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\navigation_everything.xml"
     },
     {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_headlines_fragment.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\headlines_fragment.xml"
+    },
+    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_headlines_fragment.xml.flat",
-        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\headlines_fragment.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_bookmark_24.xml.flat",

@@ -17,13 +17,7 @@ class CategoriesFragment : Fragment() {
     lateinit var tabLayout: TabLayout
     lateinit var pagerAdapter: PagerAdapter
 
-    var mHome: TabItem? = null
-    var mScience: TabItem? = null
-    var mTechnology: TabItem? = null
-    var mBusiness: TabItem? = null
-    var mSports: TabItem? = null
-    var mHealth: TabItem? = null
-    var mEntertainment: TabItem? = null
+
     lateinit var viewPager: ViewPager
 
 
@@ -33,20 +27,13 @@ class CategoriesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var view: View = inflater.inflate(R.layout.categories_fragment, container, false)
-
-        mHome = view.findViewById(R.id.home)
-        mScience = view.findViewById(R.id.science)
-        mTechnology = view.findViewById(R.id.technology)
-        mBusiness = view.findViewById(R.id.business)
-        mSports = view.findViewById(R.id.sports)
-        mHealth = view.findViewById(R.id.health)
-        mEntertainment = view.findViewById(R.id.entertainment)
+        val view: View = inflater.inflate(R.layout.categories_fragment, null)
 
         tabLayout = view.findViewById(R.id.include)
-
         viewPager = view.findViewById(R.id.fragment_container_for_categories)
         categorySwipe()
+
+
         return view
     }
 
@@ -56,9 +43,13 @@ class CategoriesFragment : Fragment() {
         viewPager.adapter = pagerAdapter
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {}
+            override fun onTabSelected(tab: TabLayout.Tab?) {
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
 

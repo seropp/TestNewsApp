@@ -4,32 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_everything"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="9dp"
-        app:cardElevation="8dp">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_everything"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:defaultQueryHint="Search news..."
-            app:iconifiedByDefault="false">
-
-        </androidx.appcompat.widget.SearchView>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_of_everything"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/card_view_everything"
-        android:layout_marginTop="2dp"
-        android:fitsSystemWindows="true"
-        android:padding="2dp">
+        android:orientation="vertical">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_everything"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="9dp"
+            app:cardElevation="8dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_everything"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:defaultQueryHint="Search news..."
+                app:iconifiedByDefault="false">
+
+            </androidx.appcompat.widget.SearchView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiped_everything"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_of_everything"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/card_view_everything"
+                android:layout_marginTop="2dp"
+                android:fitsSystemWindows="true"
+                android:padding="2dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
 
 </RelativeLayout>
