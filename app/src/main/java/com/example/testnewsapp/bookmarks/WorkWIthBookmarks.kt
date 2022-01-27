@@ -11,17 +11,7 @@ import java.math.MathContext
 
 class WorkWithBookmarks {
 
-    fun addToBookmarks(item: Int, newsAdapter: NewsAdapter) {
 
-        val headline = newsAdapter.newsHLArrayList[item]
-        val idForItem = idGenerator(headline.url!!)
-        val user = FirebaseAuth.getInstance().currentUser
-
-        FirebaseDatabase.getInstance().getReference("users")
-            .child(user!!.uid).child("bookmarks")
-            .child(idForItem).setValue(headline)
-
-    }
 
     fun deleteBookmark(item: Int, newsAdapter: NewsAdapter, context: Context?) {
 
@@ -34,6 +24,18 @@ class WorkWithBookmarks {
             .child(idForItem).removeValue().addOnFailureListener {
                 Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    fun addToBookmarks(item: Int, newsAdapter: NewsAdapter) {
+
+        val headline = newsAdapter.newsHLArrayList[item]
+        val idForItem = idGenerator(headline.url!!)
+        val user = FirebaseAuth.getInstance().currentUser
+
+        FirebaseDatabase.getInstance().getReference("users")
+            .child(user!!.uid).child("bookmarks")
+            .child(idForItem).setValue(headline)
+
     }
 
     fun idGenerator(str: String): String {

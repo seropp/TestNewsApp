@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
     private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,48 +49,44 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var navListener: BottomNavigationView.OnNavigationItemSelectedListener =
-        object : BottomNavigationView.OnNavigationItemSelectedListener {
-            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            var selectedFragment: Fragment? = null
 
-
-                var selectedFragment: Fragment? = null
-
-                when (item.itemId) {
-
-                    R.id.navigation_btn_headlines -> selectedFragment = CategoriesFragment()
-
-                    R.id.navigation_btn_bookmarks -> {
-                        if (FirebaseAuth.getInstance().currentUser != null) {
-                            selectedFragment = BookmarksFragment()
-                        } else {
-                            Toast.makeText(
-                                this@MainActivity,
-                                "Bookmarks are available only to authorized users",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+            when (item.itemId) {
+                R.id.navigation_btn_bookmarks -> {
+                    if (FirebaseAuth.getInstance().currentUser != null) {
+                        selectedFragment = BookmarksFragment()
+                    } else {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Bookmarks are available only to authorized users",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
-                    R.id.navigation_btn_everything -> selectedFragment = EverythingNewsFragment()
-
-                    R.id.navigation_btn_setting -> selectedFragment = SettingsFragment()
-
-                }
-                if (selectedFragment != null) {
-
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, selectedFragment).commit()
-
-                } else {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "ALL NULL",
-                        Toast.LENGTH_LONG
-                    ).show()
                 }
 
-                return true
+                R.id.navigation_btn_headlines -> selectedFragment = CategoriesFragment()
+
+
+                R.id.navigation_btn_everything -> selectedFragment = EverythingNewsFragment()
+
+                R.id.navigation_btn_setting -> selectedFragment = SettingsFragment()
+
             }
+            if (selectedFragment != null) {
 
+                supportFragmentManager.beginTransaction()
+                    .remove(selectedFragment).replace(R.id.fragment_container, selectedFragment, "MY_FRAGMENT").commit()
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+        ///????????????????????????????????????????????//
+            }
+            true
         }
 }
 

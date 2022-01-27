@@ -1,6 +1,7 @@
 package com.example.testnewsapp.navigation_fragments
 
 
+import android.content.Context
 import com.google.firebase.database.*
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import com.example.testnewsapp.bookmarks.WorkWithBookmarks
 import com.example.testnewsapp.models.NewsClass
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import java.math.BigInteger
 
 
 class BookmarksFragment : Fragment() {
@@ -53,24 +55,33 @@ class BookmarksFragment : Fragment() {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
 
-        return when (item.itemId) {
-            101 -> {
-                if (user != null) {
-                    WorkWithBookmarks().deleteBookmark(item.groupId, newsAdapter, requireContext())
 
-                    Toast.makeText(requireContext(), "Bookmark deleted", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Bookmarks are available only to authorized users",
-                        Toast.LENGTH_LONG
-                    ).show()
+            return when (item.itemId) {
+                101 -> {
+                    if (user != null) {
+                        WorkWithBookmarks().deleteBookmark(
+                            item.groupId,
+                            newsAdapter,
+                            requireContext()
+                        )
+
+                        Toast.makeText(requireContext(), "Bookmark deleted", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Bookmarks are available only to authorized users",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    true
                 }
-                true
+                else -> super.onContextItemSelected(item)
             }
-            else -> super.onContextItemSelected(item)
-        }
+
     }
+
+
 
     private fun getBookmarks() {
         allBookmarks.addValueEventListener(object : ValueEventListener {

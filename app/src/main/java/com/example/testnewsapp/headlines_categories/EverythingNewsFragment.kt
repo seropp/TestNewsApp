@@ -27,8 +27,8 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
     private lateinit var list: ArrayList<NewsClass>
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var searchView: SearchView
-    private var currentLanguage: String = "en"
-    private var sources: String = "cnn"
+    private var currentLanguage: String? = null
+    private var currentSources: String? = null
 
     private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var swiped: SwipeRefreshLayout
@@ -44,6 +44,7 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
         swiped = view.findViewById(R.id.swiped_everything)
         swiped.setOnRefreshListener(this)
         currentLanguage = loadData("LANGUAGE")
+        currentSources = loadData("SOURCES")
 
         everythingNewsRecyclerView = view.findViewById(R.id.recycler_view_of_everything)
 
@@ -56,7 +57,7 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
                 manager.findEverythingNews(
                     list = list,
                     language = currentLanguage,
-                    sources = sources,
+                    sources = currentSources,
                     query = query
                 )
                 return true
@@ -74,7 +75,7 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
         val manager = RequestManagerForNewsAPI(requireContext(), adapter = newsAdapter)
         manager.findEverythingNews(
             list = list,
-            sources = "cnn",
+            sources = currentSources,
             language = currentLanguage,
             query = null
         )
@@ -91,28 +92,29 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            101 -> {
-                if (user != null) {
-                    WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
-                    Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Bookmarks are available only to authorized users",
-                        Toast.LENGTH_LONG
-                    ).show()
+            return when (item.itemId) {
+                101 -> {
+                    if (user != null) {
+                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
+                        Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Bookmarks are available only to authorized users",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    true
                 }
-                true
+                else -> super.onContextItemSelected(item)
             }
-            else -> super.onContextItemSelected(item)
-        }
     }
 
     private fun loadData(key: String): String {
         val pref: SharedPreferences =
             requireActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        return pref.getString(key, "en")!!
+        return pref.getString(key, "ru")!!
     }
 
     override fun onRefresh() {
@@ -121,7 +123,7 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
         val manager = RequestManagerForNewsAPI(requireContext(), adapter = newsAdapter)
         manager.findEverythingNews(
             list = list,
-            sources = "cnn",
+            sources = currentSources,
             language = currentLanguage,
             query = null
         )

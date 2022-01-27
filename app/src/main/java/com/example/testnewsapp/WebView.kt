@@ -84,9 +84,5 @@ class WebView : AppCompatActivity() {
                 ).show()
             }
         }
-
-
-
-
     }
 }

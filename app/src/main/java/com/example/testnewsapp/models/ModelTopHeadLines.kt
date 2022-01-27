@@ -10,7 +10,6 @@ class SourcesApiResponse {
 }
 
 class Source {
-
     var id: String? = null
     var name: String? = null
 }
@@ -26,9 +25,5 @@ class NewsClass {
     var urlToImage: String? = null
     var publishedAt: String? = null
     var content: String? = null
-}
-
-
-class SourceClass{
 
 }

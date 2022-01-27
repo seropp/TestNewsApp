@@ -1,9 +1,11 @@
 package com.example.testnewsapp.navigation_fragments
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +16,10 @@ import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 
 import com.example.testnewsapp.R
+import com.example.testnewsapp.RequestManagerForNewsAPI
 import com.example.testnewsapp.login.LoginActivity
+import com.example.testnewsapp.models.NewsClass
+import com.example.testnewsapp.models.Source
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
@@ -55,11 +60,13 @@ class SettingsFragment : Fragment() {
             chooseCountry()
         }
 
-
         languageChangeBtn.setOnClickListener {
             chooseLanguage()
         }
 
+        sourcesChangeBtn.setOnClickListener {
+            chooseSources()
+        }
 
         return view
     }
@@ -92,6 +99,33 @@ class SettingsFragment : Fragment() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    private fun chooseSources() {
+        var source = 0
+        val list = getAllSources().toTypedArray()
+        var selectedItemList: ArrayList<String> = ArrayList()
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Sources")
+            .setMultiChoiceItems(list, null
+            ) { _, p1, p2 ->
+                if (p2) {
+                    selectedItemList.add(list[p1])
+                } else selectedItemList.remove(list[p1])
+            }
+            .setPositiveButton("Ok") { _, _ ->
+
+                val pref: SharedPreferences =
+                    requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+                val editor = pref.edit()
+                editor.apply {
+                    putString("SOURCES", TextUtils.join(",", selectedItemList))
+                }.apply()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+
     }
 
     private fun chooseLanguage() {
@@ -135,6 +169,28 @@ class SettingsFragment : Fragment() {
             requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
         val lg = pref.getString("LANGUAGE", "null")!!
         languageText.text = "Current language: $lg"
+    }
+
+    private fun getAllSources(): ArrayList<String> {
+        val list: ArrayList<Source> = ArrayList()
+        val listSources: ArrayList<String> = ArrayList()
+        val pref: SharedPreferences =
+            requireActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        val language = pref.getString("LANGUAGE", "ru")!!
+        val country = pref.getString("COUNTRY", "ru")!!
+        val manager = RequestManagerForNewsAPI(requireContext())
+        manager.findAllSources(
+            list = list,
+            language = language,
+            country = country
+        )
+        list.forEach {
+            if (it.name != null) {
+                listSources.add(it.name!!)
+            }
+        }
+
+        return listSources
     }
 
     private val countriesMap = mapOf(
@@ -193,6 +249,7 @@ class SettingsFragment : Fragment() {
         "USA" to "us",
         "Venezuela" to "ve"
     )
+
     private val languagesMap = mapOf(
         "Arabic" to "ar",
         "Chinese" to "zh",

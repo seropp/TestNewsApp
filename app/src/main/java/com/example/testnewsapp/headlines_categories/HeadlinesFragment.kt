@@ -19,8 +19,11 @@ import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.RequestManagerForNewsAPI
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
+import com.example.testnewsapp.navigation_fragments.BookmarksFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
+import java.math.BigInteger
 import kotlin.collections.ArrayList
 
 
@@ -96,23 +99,29 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
 
-        return when (item.itemId) {
-            101 -> {
-                if (user != null) {
-                    WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
-                    Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Bookmarks are available only to authorized users",
-                        Toast.LENGTH_LONG
-                    ).show()
+
+
+            return when (item.itemId) {
+                101 -> {
+                    if (user != null) {
+//                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
+                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
+                        Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Bookmarks are available only to authorized users",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    true
                 }
-                true
+                else -> super.onContextItemSelected(item)
             }
-            else -> super.onContextItemSelected(item)
-        }
+
     }
+
 
     private fun loadData(key: String): String {
         val pref: SharedPreferences =
