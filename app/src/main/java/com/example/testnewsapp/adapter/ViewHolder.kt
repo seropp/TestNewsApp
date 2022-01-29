@@ -21,6 +21,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnCre
     var iViewImage: ImageView = itemView.findViewById(R.id.item_image)
     var iCardView: CardView = itemView.findViewById(R.id.cardView)
 
+
     init {
         iCardView.setOnCreateContextMenuListener(this)
     }

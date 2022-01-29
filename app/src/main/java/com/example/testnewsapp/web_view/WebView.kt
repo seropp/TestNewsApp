@@ -1,4 +1,4 @@
-package com.example.testnewsapp
+package com.example.testnewsapp.web_view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.testnewsapp.R
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
-import com.example.testnewsapp.models.NewsClass
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

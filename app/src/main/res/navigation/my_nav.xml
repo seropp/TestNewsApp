@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.testnewsapp.onboarding.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingViewPagerFragment2"
+            app:destination="@id/onboardingViewPagerFragment2"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingViewPagerFragment2"
+        android:name="com.example.testnewsapp.onboarding.OnboardingViewPagerFragment"
+        android:label="onboarding_fragment_view_pager"
+        tools:layout="@layout/onboarding_fragment_view_pager" >
+        <action
+            android:id="@+id/action_onboardingViewPagerFragment2_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/onboardingViewPagerFragment2" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.testnewsapp.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>

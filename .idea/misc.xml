@@ -16,6 +16,7 @@
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/activity_login2.xml" value="0.17552083333333332" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/activity_login_firebase_ui.xml" value="0.1390625" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/activity_onboarding.xml" value="0.24094202898550723" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/activity_web_view.xml" value="0.2" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/bookmarks_fragment.xml" value="0.1" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/business_fragment.xml" value="0.264" />
@@ -24,6 +25,11 @@
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/entertainment_fragment.xml" value="0.1" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/entertainmentfragment.xml" value="0.25416666666666665" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/everything_new_fragment.xml" value="0.1" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/fragment_first.xml" value="0.20520833333333333" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/fragment_second.xml" value="0.21014492753623187" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/fragment_splash.xml" value="0.2078125" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/fragment_third.xml" value="0.264" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/fragment_view_pager.xml" value="0.20677083333333332" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/headlines_fragment.xml" value="0.2" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/health_fragment.xml" value="0.264" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/healthfragment.xml" value="0.25416666666666665" />
@@ -31,6 +37,7 @@
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/homefragment.xml" value="0.25416666666666665" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/item_layout.xml" value="0.264" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/layout_bg.xml" value="0.21875" />
+        <entry key="..\:/TestNewsApp/app/src/main/res/layout/onboarding_fragment_view_pager.xml" value="0.23854166666666668" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/science_fragment.xml" value="0.1" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/settings_fragment.xml" value="0.2078125" />
         <entry key="..\:/TestNewsApp/app/src/main/res/layout/since_fragment.xml" value="0.1" />

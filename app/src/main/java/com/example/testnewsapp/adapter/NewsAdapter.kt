@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.testnewsapp.R
-import com.example.testnewsapp.WebView
+import com.example.testnewsapp.web_view.WebView
 import com.example.testnewsapp.models.NewsClass
-
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClass>) :
     RecyclerView.Adapter<ViewHolder>() {
@@ -24,13 +24,13 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.iCardView.setOnClickListener {
-            val intent: Intent = Intent(context, WebView::class.java)
+            val intent = Intent(context, WebView::class.java)
             intent.putExtra("title", newsHLArrayList[position].title)
             intent.putExtra("description", newsHLArrayList[position].description)
             intent.putExtra("content", newsHLArrayList[position].content)
             intent.putExtra("publishedAt", newsHLArrayList[position].publishedAt)
             intent.putExtra("author", newsHLArrayList[position].author)
-            intent.putExtra("source", newsHLArrayList[position].source!!.name)
+            intent.putExtra("source", newsHLArrayList[position]?.source!!.name)
             intent.putExtra("imageUrl", newsHLArrayList[position].urlToImage)
             intent.putExtra("url", newsHLArrayList[position].url)
             context?.startActivity(intent)
@@ -38,9 +38,6 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
 
         holder.iTitle.text = newsHLArrayList[position].title
         holder.iDescription.text = newsHLArrayList[position].description
-        if(newsHLArrayList[position].author == null){
-            newsHLArrayList[position].author = ""
-        }
         holder.iAuthor.text = newsHLArrayList[position].author
         holder.iSource.text = newsHLArrayList[position].source!!.name
 

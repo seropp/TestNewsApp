@@ -1,8 +1,7 @@
 package com.example.testnewsapp.navigation_fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,18 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
+import com.example.testnewsapp.GetCurrentData
 
 import com.example.testnewsapp.R
-import com.example.testnewsapp.RequestManagerForNewsAPI
-import com.example.testnewsapp.login.LoginActivity
-import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.models.Source
-import com.firebase.ui.auth.AuthUI
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.FirebaseAuth
+
 
 
 class SettingsFragment : Fragment() {
@@ -34,6 +28,12 @@ class SettingsFragment : Fragment() {
     private lateinit var languageChangeBtn: Button
     private lateinit var sourcesChangeBtn: Button
 
+    private lateinit var list: ArrayList<Source>
+
+
+
+
+    @SuppressLint("InflateParams")
     @Nullable
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +42,7 @@ class SettingsFragment : Fragment() {
     ): View {
         val view: View = inflater.inflate(R.layout.settings_fragment, null)
 
-
+        list = arrayListOf()
 
         regionText = view.findViewById(R.id.current_region)
         languageText = view.findViewById(R.id.current_language)
@@ -54,216 +54,56 @@ class SettingsFragment : Fragment() {
         changeRegionTxt()
         changeLanguageTxt()
 
-
-
         regionChangeBtn.setOnClickListener {
-            chooseCountry()
+            GetCurrentData().chooseCountry(requireContext())
+            changeRegionTxt()
         }
-
         languageChangeBtn.setOnClickListener {
-            chooseLanguage()
+            GetCurrentData().chooseLanguage(requireContext())
+            changeLanguageTxt()
         }
 
         sourcesChangeBtn.setOnClickListener {
-            chooseSources()
+            GetCurrentData().getAllSources(requireContext(),list)
         }
 
         return view
     }
 
 
-    private fun chooseCountry() {
-
-        var country = 0
-        val list = countriesMap.keys.toList().sorted().toTypedArray()
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Countries")
-            .setSingleChoiceItems(list, country) { dialog, which ->
-                country = which
-            }
-            .setPositiveButton("Ok") { dialog, which ->
 
 
-                val pref: SharedPreferences =
-                    requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-                val editor = pref.edit()
-                editor.apply {
-                    putString("COUNTRY", countriesMap[list[country]])
-                }.apply()
-                changeRegionTxt()
-                Toast.makeText(
-                    requireContext(),
-                    "Current region: " + list[country],
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
-    private fun chooseSources() {
-        var source = 0
-        val list = getAllSources().toTypedArray()
-        var selectedItemList: ArrayList<String> = ArrayList()
-
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Sources")
-            .setMultiChoiceItems(list, null
-            ) { _, p1, p2 ->
-                if (p2) {
-                    selectedItemList.add(list[p1])
-                } else selectedItemList.remove(list[p1])
-            }
-            .setPositiveButton("Ok") { _, _ ->
-
-                val pref: SharedPreferences =
-                    requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-                val editor = pref.edit()
-                editor.apply {
-                    putString("SOURCES", TextUtils.join(",", selectedItemList))
-                }.apply()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-
-    }
-
-    private fun chooseLanguage() {
-        var language = 0
-        val list = languagesMap.keys.toList().sorted().toTypedArray()
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Languages")
-            .setSingleChoiceItems(list, language) { dialog, which ->
-                language = which
-            }
-            .setPositiveButton("Ok") { dialog, which ->
-
-
-                val pref: SharedPreferences =
-                    requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-                val editor = pref.edit()
-                editor.apply {
-                    putString("LANGUAGE", languagesMap[list[language]])
-                }.apply()
-                changeLanguageTxt()
-
-                Toast.makeText(
-                    requireContext(),
-                    "Current language: " + list[language],
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
+    @SuppressLint("SetTextI18n")
     private fun changeRegionTxt() {
         val pref: SharedPreferences =
-            requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        val rg = pref.getString("COUNTRY", "null")!!
-        regionText.text = "Current region: $rg"
+            requireActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        val rg = pref.getString("COUNTRY", "")
+        if(rg == "") {
+            regionText.text = "All regions"
+        }
+        else {
+            regionText.text = "Current region: $rg"
+        }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun changeLanguageTxt() {
         val pref: SharedPreferences =
-            requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        val lg = pref.getString("LANGUAGE", "null")!!
-        languageText.text = "Current language: $lg"
-    }
-
-    private fun getAllSources(): ArrayList<String> {
-        val list: ArrayList<Source> = ArrayList()
-        val listSources: ArrayList<String> = ArrayList()
-        val pref: SharedPreferences =
             requireActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        val language = pref.getString("LANGUAGE", "ru")!!
-        val country = pref.getString("COUNTRY", "ru")!!
-        val manager = RequestManagerForNewsAPI(requireContext())
-        manager.findAllSources(
-            list = list,
-            language = language,
-            country = country
-        )
-        list.forEach {
-            if (it.name != null) {
-                listSources.add(it.name!!)
-            }
+        val lg = pref.getString("LANGUAGE", null)
+        if (lg == "" ) {
+            languageText.text = "All languages"
+        } else {
+            languageText.text = "Current language: $lg"
         }
-
-        return listSources
     }
 
-    private val countriesMap = mapOf(
-        "Argentina" to "ar",
-        "Australia" to "au",
-        "Austria" to "at",
-        "Belgium" to "be",
-        "Brazil" to "br",
-        "Bulgaria" to "bg",
-        "Canada" to "ca",
-        "China" to "cn",
-        "Colombia" to "co",
-        "Cuba" to "cu",
-        "Czechia" to "cz",
-        "Egypt" to "eg",
-        "France" to "fr",
-        "Germany" to "de",
-        "Greece" to "gr",
-        "Honk Kong" to "hk",
-        "Hungary" to "hu",
-        "Indonesia" to "id",
-        "Ireland" to "ie",
-        "Israel" to "il",
-        "India" to "in",
-        "Italy" to "it",
-        "Japan" to "jp",
-        "Korea" to "kr",
-        "Latvia" to "lv",
-        "Lithuania" to "lt",
-        "Morocco" to "ma",
-        "Mexico" to "mx",
-        "Malaysia" to "my",
-        "Nigeria" to "ng",
-        "Netherlands" to "nl",
-        "Norway" to "no",
-        "New Zealand" to "nz",
-        "Philippines" to "ph",
-        "Poland" to "pl",
-        "Portugal" to "pt",
-        "Romania" to "ro",
-        "Russia" to "ru",
-        "Serbia" to "rs",
-        "Saudi Arabia" to "sa",
-        "Sweden" to "se",
-        "Singapore" to "sg",
-        "Slovenia" to "si",
-        "Slovakia" to "sk",
-        "South Africa" to "za",
-        "Switzerland" to "ch",
-        "Thailand" to "th",
-        "Turkey" to "tr",
-        "Taiwan" to "tw",
-        "Ukraine" to "ua",
-        "United Arab Emirates" to "ae",
-        "United Kingdom of Great Britain and Northern Ireland" to "gb",
-        "USA" to "us",
-        "Venezuela" to "ve"
-    )
 
-    private val languagesMap = mapOf(
-        "Arabic" to "ar",
-        "Chinese" to "zh",
-        "Dutch" to "nl",
-        "English" to "en",
-        "French" to "fr",
-        "German" to "de",
-        "Hebrew" to "he",
-        "Italian" to "it",
-        "Norwegian" to "no",
-        "Portuguese" to "pt",
-        "Russian" to "ru",
-        "Sami" to "se",
-        "Spanish" to "es",
-    )
+
+
+
+
 }
+
+
 

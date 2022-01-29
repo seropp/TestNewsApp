@@ -11,29 +11,30 @@ import android.content.SharedPreferences
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsClass
-import com.example.testnewsapp.RequestManagerForNewsAPI
+import com.example.testnewsapp.api.RequestManagerForNewsAPI
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
-import com.example.testnewsapp.navigation_fragments.BookmarksFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.FirebaseDatabase
-import java.math.BigInteger
+import kotlinx.coroutines.launch
 import kotlin.collections.ArrayList
 
 
 class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
-    private lateinit var headlinesRecyclerView: RecyclerView
+    private lateinit var v: View
+
+    private lateinit var recyclerView: RecyclerView
     private lateinit var list: ArrayList<NewsClass>
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var searchView: SearchView
-    private lateinit var currentCountry: String
+    private var currentCountry: String? = null
 
     private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var swiped: SwipeRefreshLayout
@@ -44,101 +45,85 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.headlines_fragment, null)
+        v = LayoutInflater.from(context).inflate(R.layout.headlines_fragment, container, false)
         currentCountry = loadData("COUNTRY")
+        list = ArrayList()
 
 
-        swiped = view.findViewById(R.id.swiped_headlines)
+        swiped = v.findViewById(R.id.swiped_headlines)
         swiped.setOnRefreshListener(this)
 
 
-        headlinesRecyclerView = view.findViewById(R.id.recycler_view_of_headlines)
-        searchView = view.findViewById(R.id.search_for_headlines)
+        searchView = v.findViewById(R.id.search_for_headlines)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
+                getNews(query = query)
                 init()
-                val manager = RequestManagerForNewsAPI(requireContext(), adapter = newsAdapter)
-                manager.findHeadlinesNews(
-                    category = category,
-                    list = list,
-                    query = query,
-                    country = currentCountry
-                )
 
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                getNews(query = null)
+                init()
+
                 return false
             }
         })
-
+        getNews()
         init()
 
-        val manager = RequestManagerForNewsAPI(requireContext(), adapter = newsAdapter)
-        manager.findHeadlinesNews(
-            category = category,
-            list = list,
-            query = null,
-            country = currentCountry
-        )
-
-        return view
+        return v
     }
 
     private fun init() {
-
-        list = ArrayList()
-        headlinesRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        newsAdapter = NewsAdapter(requireActivity(), list)
-        headlinesRecyclerView.adapter = newsAdapter
-
+        recyclerView = v.findViewById(R.id.recycler_view_of_headlines)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        newsAdapter = NewsAdapter(requireContext(), list)
+        recyclerView.adapter = newsAdapter
     }
 
+    private fun getNews(query: String? = null) = lifecycleScope.launch {
 
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-
-
-
-            return when (item.itemId) {
-                101 -> {
-                    if (user != null) {
-//                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
-                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
-                        Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
-                            .show()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "Bookmarks are available only to authorized users",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    true
-                }
-                else -> super.onContextItemSelected(item)
-            }
-
-    }
-
-
-    private fun loadData(key: String): String {
-        val pref: SharedPreferences =
-            requireActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        return pref.getString(key, "ru")!!
-    }
-
-    override fun onRefresh() {
-        init()
-
-        val manager = RequestManagerForNewsAPI(requireContext(), adapter = newsAdapter)
+        val manager = RequestManagerForNewsAPI(requireContext())
         manager.findHeadlinesNews(
             category = category,
             list = list,
-            query = null,
+            query = query,
             country = currentCountry
         )
+    }
+
+    private fun loadData(key: String): String? {
+        val pref: SharedPreferences =
+            requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        return pref.getString(key, null)
+    }
+
+    override fun onRefresh() {
+
         swiped.isRefreshing = false
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            101 -> {
+                if (user != null) {
+                    WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
+                    Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Bookmarks are available only to authorized users",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                true
+            }
+            else -> super.onContextItemSelected(item)
+        }
     }
 }

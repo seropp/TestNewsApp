@@ -5,8 +5,7 @@ class NewsApiResponse {
 }
 
 class SourcesApiResponse {
-    var status: String = ""
-    lateinit var sources: List<Source>
+    var sources: ArrayList<Source>? = null
 }
 
 class Source {

@@ -78,7 +78,6 @@ class BookmarksFragment : Fragment() {
                 }
                 else -> super.onContextItemSelected(item)
             }
-
     }
 
 
@@ -106,7 +105,5 @@ class BookmarksFragment : Fragment() {
             override fun onCancelled(error: DatabaseError) {}
         })
     }
-
-
 }
 

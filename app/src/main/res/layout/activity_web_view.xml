@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        tools:context=".WebView">
+        tools:context=".web_view.WebView">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

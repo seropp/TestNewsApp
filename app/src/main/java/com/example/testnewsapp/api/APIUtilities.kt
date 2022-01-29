@@ -1,25 +1,23 @@
-package com.example.testnewsapp
+package com.example.testnewsapp.api
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
+import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
+import com.example.testnewsapp.api.RetrofitInstance
 import com.example.testnewsapp.models.NewsApiResponse
 import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.models.Source
 import com.example.testnewsapp.models.SourcesApiResponse
-import okhttp3.Cache.key
 import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
-
-import retrofit2.http.GET
-import retrofit2.http.Query
 
 
-class RequestManagerForNewsAPI(val context: Context, var adapter: NewsAdapter? = null) {
 
-    private var retrofit: Retrofit? = null
-    val apiKey: String = context.getString(R.string.api_key);
+class RequestManagerForNewsAPI(val context: Context) {
+
+
+    private val apiKey: String = context.getString(R.string.api_key)
 
     fun findEverythingNews(
         list: ArrayList<NewsClass>,
@@ -27,7 +25,8 @@ class RequestManagerForNewsAPI(val context: Context, var adapter: NewsAdapter? =
         sources: String?,
         query: String?
     ) {
-        val call = getInterfaceAPI()!!
+        val call = RetrofitInstance
+            .api
             .callEverything(
                 q = query,
                 language = language,
@@ -36,16 +35,16 @@ class RequestManagerForNewsAPI(val context: Context, var adapter: NewsAdapter? =
             )
 
         requestToAPI(call, list)
-
     }
 
     fun findHeadlinesNews(
         category: String,
         list: ArrayList<NewsClass>,
-        country: String,
+        country: String?,
         query: String?
     ) {
-        val call = getInterfaceAPI()!!
+        val call = RetrofitInstance
+            .api
             .callHeadLinesNews(
                 q = query,
                 country = country,
@@ -60,28 +59,34 @@ class RequestManagerForNewsAPI(val context: Context, var adapter: NewsAdapter? =
         list: ArrayList<Source>?,
         language: String?,
         country: String?
-    ) {
-        val call = getInterfaceAPI()!!
-            .callSources(
-                language = language,
-                country = country,
-                api_key = apiKey
-            )
+    ): ArrayList<Source> {
+           val call = RetrofitInstance
+               .api
+               .callSources(
+                   language = language,
+                   country = country,
+                   api_key = apiKey
+               )
+
         call.enqueue(object : Callback<SourcesApiResponse> {
             override fun onResponse(
                 call: Call<SourcesApiResponse>,
                 response: Response<SourcesApiResponse>
             ) {
-                list!!.clear()
+                list?.clear()
                 if (response.isSuccessful) {
-                    list.addAll(response.body()!!.sources)
+                    response.body()?.sources?.let { list?.addAll(it) }
+
                 }
+
             }
 
             override fun onFailure(call: Call<SourcesApiResponse>, t: Throwable) {
             }
 
         })
+        return list!!
+
     }
 
     private fun requestToAPI(
@@ -97,7 +102,6 @@ class RequestManagerForNewsAPI(val context: Context, var adapter: NewsAdapter? =
                 when {
                     response.isSuccessful -> {
                         list.addAll(response.body()!!.articles!!)
-                        adapter!!.notifyDataSetChanged();
                     }
                     response.code() == 400 -> {
                         Toast.makeText(
@@ -121,40 +125,4 @@ class RequestManagerForNewsAPI(val context: Context, var adapter: NewsAdapter? =
             }
         })
     }
-
-    private fun getInterfaceAPI(): InterfaceCallApi? {
-        if (retrofit === null) {
-            retrofit = Retrofit.Builder().baseUrl("https://newsapi.org/v2/")
-                .addConverterFactory(GsonConverterFactory.create()).build()
-        }
-        return retrofit!!.create(InterfaceCallApi::class.java)
-    }
-
-}
-
-interface InterfaceCallApi {
-
-
-    @GET("top-headlines")
-    fun callHeadLinesNews(
-        @Query("q") q: String?,
-        @Query("country") country: String?,
-        @Query("category") category: String?,
-        @Query("apiKey") api_key: String?,
-    ): Call<NewsApiResponse>
-
-    @GET("everything")
-    fun callEverything(
-        @Query("q") q: String?,
-        @Query("sources") sources: String?,
-        @Query("language") language: String?,
-        @Query("apiKey") api_key: String?,
-    ): Call<NewsApiResponse>
-
-    @GET("top-headlines/sources")
-    fun callSources(
-        @Query("language") language: String?,
-        @Query("country") country: String?,
-        @Query("apiKey") api_key: String?
-    ): Call<SourcesApiResponse>
 }

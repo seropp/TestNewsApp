@@ -16,7 +16,7 @@
         android:id="@+id/navigation_btn_everything"
         android:icon="@drawable/navigation_everything"
 
-        android:title="Everything" />
+        android:title="Breaking news" />
 
     <item
         android:id="@+id/navigation_btn_statistic"

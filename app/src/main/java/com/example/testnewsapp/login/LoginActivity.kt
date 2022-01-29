@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
         btnLogIn.setOnClickListener {
             startActivity(Intent(this, LoginFirebaseUI::class.java))
         }
+
         btnBeginTo = findViewById(R.id.btn_to_begin_login)
         btnBeginTo.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -78,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
 
             users = FirebaseDatabase.getInstance().getReference("users")
             currentUserReference = users.child(auth.uid)
+
             val userMap = mapOf(
                 "email" to auth.email,
                 "name" to auth.displayName,
