@@ -1,7 +1,6 @@
 package com.example.testnewsapp.navigation_fragments
 
 
-import android.content.Context
 import com.google.firebase.database.*
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,7 +18,6 @@ import com.example.testnewsapp.bookmarks.WorkWithBookmarks
 import com.example.testnewsapp.models.NewsClass
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import java.math.BigInteger
 
 
 class BookmarksFragment : Fragment() {
@@ -40,44 +38,17 @@ class BookmarksFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val view: View = inflater.inflate(R.layout.bookmarks_fragment, null)
+        val view: View = inflater.inflate(R.layout.bookmarks_fragment, container, false)
+
 
         headlinesRecyclerView = view.findViewById(R.id.recycler_view_of_bookmarks)
         headlinesRecyclerView.setHasFixedSize(true)
-
+        registerForContextMenu(headlinesRecyclerView)
         getBookmarks()
 
 
 
-        headlinesRecyclerView = view.findViewById(R.id.recycler_view_of_bookmarks)
         return view
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-
-
-            return when (item.itemId) {
-                101 -> {
-                    if (user != null) {
-                        WorkWithBookmarks().deleteBookmark(
-                            item.groupId,
-                            newsAdapter,
-                            requireContext()
-                        )
-
-                        Toast.makeText(requireContext(), "Bookmark deleted", Toast.LENGTH_SHORT)
-                            .show()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "Bookmarks are available only to authorized users",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    true
-                }
-                else -> super.onContextItemSelected(item)
-            }
     }
 
 
@@ -105,5 +76,34 @@ class BookmarksFragment : Fragment() {
             override fun onCancelled(error: DatabaseError) {}
         })
     }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+
+         return when (item.itemId) {
+            131 -> {
+                if (user != null) {
+                    WorkWithBookmarks().deleteBookmark(
+                        item.groupId,
+                        newsAdapter,
+                        requireContext()
+                    )
+
+                    Toast.makeText(requireContext(), "Bookmark deleted", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Bookmarks are available only to authorized users",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                Toast.makeText(requireContext(), "BOOOOOk", Toast.LENGTH_SHORT)
+                    .show()
+               return true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+    }
+
 }
 

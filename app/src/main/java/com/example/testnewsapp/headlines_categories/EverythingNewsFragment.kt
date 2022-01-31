@@ -1,8 +1,8 @@
 package com.example.testnewsapp.headlines_categories
 
-import android.content.Context
-import android.content.SharedPreferences
+
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.annotation.Nullable
@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.testnewsapp.GetCurrentData
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsClass
@@ -19,7 +20,6 @@ import com.example.testnewsapp.api.RequestManagerForNewsAPI
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.launch
 import kotlin.collections.ArrayList
 
 
@@ -43,11 +43,13 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
     ): View {
         val view: View = inflater.inflate(R.layout.everything_new_fragment, null)
 
+        list = ArrayList()
+
         swiped = view.findViewById(R.id.swiped_everything)
         swiped.setOnRefreshListener(this)
-        currentLanguage = loadData("LANGUAGE")
-        currentSources = loadData("SOURCES")
-        onRefresh()
+        currentLanguage = GetCurrentData().getCurrentLanguage(requireContext())
+        currentSources = GetCurrentData().getCurrentSources(requireContext())
+
 
         everythingNewsRecyclerView = view.findViewById(R.id.recycler_view_of_everything)
 
@@ -56,45 +58,40 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 init()
-                getNews(query)
+                getNews(query, adapter = newsAdapter)
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 init()
-                getNews(query = null)
+                getNews(query = null, adapter = newsAdapter)
                 return false
             }
         })
         init()
-        getNews()
+        getNews(query = null, adapter = newsAdapter)
+
+
         return view
     }
 
     private fun init() {
-        list = ArrayList()
         everythingNewsRecyclerView.layoutManager = LinearLayoutManager(context)
         newsAdapter = NewsAdapter(context, list)
         everythingNewsRecyclerView.adapter = newsAdapter
     }
 
-    private fun getNews(query: String? = null) = lifecycleScope.launch {
-
-
+    private fun getNews(query: String? = null, adapter: NewsAdapter) {
         val manager = RequestManagerForNewsAPI(requireContext())
         manager.findEverythingNews(
             list = list,
             sources = currentSources,
             language = currentLanguage,
-            query = query
+            query = query,
+            adapter = adapter
         )
     }
 
-    private fun loadData(key: String): String? {
-        val pref: SharedPreferences =
-            requireActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        return pref.getString(key, null)
-    }
 
     override fun onRefresh() {
 
@@ -103,7 +100,7 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            101 -> {
+            131 -> {
                 if (user != null) {
                     WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
                     Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)

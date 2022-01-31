@@ -1,6 +1,8 @@
 package com.example.testnewsapp.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -10,16 +12,16 @@ import androidx.databinding.DataBindingUtil
 import com.example.testnewsapp.MainActivity
 import com.example.testnewsapp.R
 import com.example.testnewsapp.databinding.ActivityLoginBinding
+import com.example.testnewsapp.onboarding.OnboardingActivity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private val auth = FirebaseAuth.getInstance().currentUser
+    private var auth = FirebaseAuth.getInstance().currentUser
     private lateinit var btnSignOut: Button
     private lateinit var btnLogIn: Button
     private lateinit var btnBeginTo: Button
@@ -30,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         var idCurrentUser: String? = null
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,14 +43,18 @@ class LoginActivity : AppCompatActivity() {
             createUI()
         }
 
+
         btnSignOut = findViewById(R.id.btn_signout)
         btnSignOut.setOnClickListener {
             AuthUI.getInstance().signOut(this).addOnSuccessListener {
+
                 val loginTxtName: TextView = findViewById(R.id.login_txt_name)
                 val loginEmail: TextView = findViewById(R.id.login_email)
                 loginTxtName.text = "Username"
                 loginEmail.text = "Email"
+                auth = null
                 idCurrentUser = null
+
                 Toast.makeText(this, "Success logged Out", Toast.LENGTH_LONG).show()
             }
         }
@@ -59,8 +66,58 @@ class LoginActivity : AppCompatActivity() {
 
         btnBeginTo = findViewById(R.id.btn_to_begin_login)
         btnBeginTo.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+
+            if (auth != null) {
+
+                val path = FirebaseDatabase.getInstance().getReference("users")
+                    .child(auth!!.uid)
+                    .child("info")
+                path.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+
+                        if (snapshot.child("onboarding").value == "no") {
+
+                            switchToOnboarding()
+                        } else {
+                            switchToMain()
+                            getUserSettings()
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
+
+            } else {
+                switchToOnboarding()
+            }
         }
+    }
+
+    private fun getUserSettings() {
+        val path = FirebaseDatabase.getInstance().getReference("users")
+            .child(auth!!.uid)
+            .child("info")
+
+
+        path.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val pref: SharedPreferences =
+                    getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+
+                val editor = pref.edit()
+                editor.apply {
+                    val l: String? = snapshot.child("default_language").value as String?
+                    val r: String? = snapshot.child("default_region").value as String?
+                    val s: String? = snapshot.child("default_sources").value as String?
+                    putString("LANGUAGE", l)
+                    putString("COUNTRY", r)
+                    putString("SOURCES", s)
+                }.apply()
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 
     override fun onBackPressed() {
@@ -73,19 +130,41 @@ class LoginActivity : AppCompatActivity() {
 
             val loginTxtName: TextView = findViewById(R.id.login_txt_name)
             val loginEmail: TextView = findViewById(R.id.login_email)
-            loginTxtName.text = auth.displayName
-            loginEmail.text = auth.email
-            idCurrentUser = auth.uid
+            loginTxtName.text = auth!!.displayName
+            loginEmail.text = auth!!.email
+            idCurrentUser = auth!!.uid
 
             users = FirebaseDatabase.getInstance().getReference("users")
-            currentUserReference = users.child(auth.uid)
+            currentUserReference = users.child(auth!!.uid)
+            currentUserReference
+                .child("info")
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (!snapshot.hasChildren()) {
+
+                            currentUserReference.child("info").child("onboarding").setValue("no")
+
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
 
             val userMap = mapOf(
-                "email" to auth.email,
-                "name" to auth.displayName,
+                "email" to auth!!.email,
+                "name" to auth!!.displayName,
             )
             currentUserReference.updateChildren(userMap)
             bookMarks = currentUserReference.child("bookmarks")
+
         }
+    }
+
+    fun switchToOnboarding() {
+        startActivity(Intent(this, OnboardingActivity::class.java))
+    }
+
+    fun switchToMain() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }

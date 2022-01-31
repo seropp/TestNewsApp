@@ -2,6 +2,7 @@ package com.example.testnewsapp.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.example.testnewsapp.R
 import com.example.testnewsapp.web_view.WebView
 import com.example.testnewsapp.models.NewsClass
-import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClass>) :
     RecyclerView.Adapter<ViewHolder>() {
@@ -21,7 +21,7 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
                 .inflate(R.layout.item_layout, parent, false)
         )
     }
-
+    private val position = 0
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.iCardView.setOnClickListener {
             val intent = Intent(context, WebView::class.java)
@@ -35,7 +35,6 @@ class NewsAdapter(var context: Context?, var newsHLArrayList: ArrayList<NewsClas
             intent.putExtra("url", newsHLArrayList[position].url)
             context?.startActivity(intent)
         }
-
         holder.iTitle.text = newsHLArrayList[position].title
         holder.iDescription.text = newsHLArrayList[position].description
         holder.iAuthor.text = newsHLArrayList[position].author

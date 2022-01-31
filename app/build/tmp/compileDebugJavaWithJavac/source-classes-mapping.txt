@@ -1,5 +1,3 @@
-com/example/testnewsapp/databinding/SettingsFragmentBinding.java
- com.example.testnewsapp.databinding.SettingsFragmentBinding
 com/example/testnewsapp/databinding/ItemLayoutBinding.java
  com.example.testnewsapp.databinding.ItemLayoutBinding
 com/example/testnewsapp/databinding/BookmarksFragmentBinding.java
@@ -8,12 +6,26 @@ com/example/testnewsapp/databinding/HeadlinesFragmentBinding.java
  com.example.testnewsapp.databinding.HeadlinesFragmentBinding
 com/example/testnewsapp/DataBindingTriggerClass.java
  com.example.testnewsapp.DataBindingTriggerClass
+com/example/testnewsapp/databinding/FragmentSecondBinding.java
+ com.example.testnewsapp.databinding.FragmentSecondBinding
 com/example/testnewsapp/databinding/ActivityWebViewBinding.java
  com.example.testnewsapp.databinding.ActivityWebViewBinding
-com/example/testnewsapp/BuildConfig.java
- com.example.testnewsapp.BuildConfig
 com/example/testnewsapp/databinding/ActivityMainBinding.java
  com.example.testnewsapp.databinding.ActivityMainBinding
+com/example/testnewsapp/databinding/FragmentSplashBinding.java
+ com.example.testnewsapp.databinding.FragmentSplashBinding
+com/example/testnewsapp/databinding/SettingsFragmentBinding.java
+ com.example.testnewsapp.databinding.SettingsFragmentBinding
+com/example/testnewsapp/databinding/FragmentThirdBinding.java
+ com.example.testnewsapp.databinding.FragmentThirdBinding
+com/example/testnewsapp/databinding/ActivityOnboardingBinding.java
+ com.example.testnewsapp.databinding.ActivityOnboardingBinding
+com/example/testnewsapp/databinding/FragmentFirstBinding.java
+ com.example.testnewsapp.databinding.FragmentFirstBinding
+com/example/testnewsapp/databinding/OnboardingFragmentViewPagerBinding.java
+ com.example.testnewsapp.databinding.OnboardingFragmentViewPagerBinding
+com/example/testnewsapp/BuildConfig.java
+ com.example.testnewsapp.BuildConfig
 com/example/testnewsapp/databinding/CategoriesFragmentBinding.java
  com.example.testnewsapp.databinding.CategoriesFragmentBinding
 com/example/testnewsapp/databinding/ActivityLoginBinding.java

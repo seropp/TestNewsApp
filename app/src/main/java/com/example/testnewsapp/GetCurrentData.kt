@@ -7,21 +7,19 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.testnewsapp.api.RequestManagerForNewsAPI
+import com.example.testnewsapp.api.RetrofitInstance
 import com.example.testnewsapp.models.Source
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlin.coroutines.coroutineContext
 
 class GetCurrentData {
 
-     fun getAllSources(context: Context, sourcesList: ArrayList<Source>) {
+    fun getAllSources(context: Context, sourcesList: ArrayList<Source>) {
 
-        val pref: SharedPreferences =
-            context.getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        val language = pref.getString("LANGUAGE", null)
-        val country = pref.getString("COUNTRY", null)
-        Log.e("TAG", language.toString())
-        Log.e("TAG", country.toString())
-         Log.e("TAG", sourcesList.size.toString()+"____________________________")
+        val language = getCurrentLanguage(context)
+        val country = getCurrentRegion(context)
+
 
         val manager = RequestManagerForNewsAPI(context)
         manager.findAllSources(
@@ -29,17 +27,17 @@ class GetCurrentData {
             language = language,
             country = country
         )
-         Log.e("TAG", sourcesList.size.toString()+"____________________________")
-         val list: ArrayList<String> = arrayListOf<String>()
+
+
+        val list: ArrayList<String> = arrayListOf()
         sourcesList.forEach {
             list.add(it.name!!)
-            Log.e("TAG", it.name!!.toString())
         }
-         Log.e("TAG", list.size.toString())
         chooseSources(list, context)
     }
 
     private fun chooseSources(list: ArrayList<String>, context: Context) {
+
 
         val sources = list.toTypedArray()
         val selectedItemList = arrayListOf<String>()
@@ -63,6 +61,7 @@ class GetCurrentData {
             }
             .setNegativeButton("Cancel", null)
             .show()
+
     }
 
     fun chooseCountry(context: Context) {
@@ -86,11 +85,29 @@ class GetCurrentData {
                 Toast.makeText(
                     context,
                     "Current region: " + list[country],
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    fun getCurrentLanguage(context: Context): String? {
+        val pref: SharedPreferences =
+            context.getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        return pref.getString("LANGUAGE", null)
+    }
+
+    fun getCurrentRegion(context: Context): String? {
+        val pref: SharedPreferences =
+            context.getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        return pref.getString("COUNTRY", null)
+    }
+
+    fun getCurrentSources(context: Context): String? {
+        val pref: SharedPreferences =
+            context.getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        return pref.getString("SOURCES", null)
     }
 
     fun chooseLanguage(context: Context) {
@@ -113,7 +130,7 @@ class GetCurrentData {
                 Toast.makeText(
                     context,
                     "Current language: " + list[language],
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
             }
             .setNegativeButton("Cancel", null)

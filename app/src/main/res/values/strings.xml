@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TestNewsApp</string>
 <!--    <string name="api_key">85eb2f4fdde34960a2ae4774d5808df5</string>-->
-    <!--    <string name="api_key">6469c060fbb04ce5a6a896c2f19fb8b1</string>-->
-        <string name="api_key">74a1692513764c3e9a7aedb4a5dbc090</string>
+        <string name="api_key">6469c060fbb04ce5a6a896c2f19fb8b1</string>
+<!--        <string name="api_key">74a1692513764c3e9a7aedb4a5dbc090</string>-->
     <string name="BASE_URL">https://newsapi.org/v2/</string>
 
     <string name="facebook_app_id">898283424170143</string>

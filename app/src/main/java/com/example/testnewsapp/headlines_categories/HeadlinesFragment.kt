@@ -6,15 +6,15 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import android.content.Context
-import android.content.SharedPreferences
+
+import android.util.Log
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.testnewsapp.GetCurrentData
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsClass
@@ -22,7 +22,6 @@ import com.example.testnewsapp.api.RequestManagerForNewsAPI
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.launch
 import kotlin.collections.ArrayList
 
 
@@ -46,7 +45,7 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
         savedInstanceState: Bundle?
     ): View {
         v = LayoutInflater.from(context).inflate(R.layout.headlines_fragment, container, false)
-        currentCountry = loadData("COUNTRY")
+        currentCountry = GetCurrentData().getCurrentRegion(requireContext())
         list = ArrayList()
 
 
@@ -58,49 +57,47 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                getNews(query = query)
                 init()
-
+                getNews(query = query,adapter = newsAdapter)
                 return true
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
-                getNews(query = null)
                 init()
-
+                getNews(query = null,adapter = newsAdapter)
                 return false
             }
         })
-        getNews()
+
         init()
+        getNews(query = null, adapter = newsAdapter)
 
         return v
     }
 
     private fun init() {
         recyclerView = v.findViewById(R.id.recycler_view_of_headlines)
+        registerForContextMenu(recyclerView)
+
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         newsAdapter = NewsAdapter(requireContext(), list)
         recyclerView.adapter = newsAdapter
     }
 
-    private fun getNews(query: String? = null) = lifecycleScope.launch {
+    private fun getNews(query: String? = null, adapter: NewsAdapter) {
+
 
         val manager = RequestManagerForNewsAPI(requireContext())
         manager.findHeadlinesNews(
             category = category,
             list = list,
             query = query,
-            country = currentCountry
+            country = currentCountry,
+            adapter = adapter
         )
+
     }
 
-    private fun loadData(key: String): String? {
-        val pref: SharedPreferences =
-            requireContext().getSharedPreferences("user_settings", Context.MODE_PRIVATE)
-        return pref.getString(key, null)
-    }
 
     override fun onRefresh() {
 
@@ -108,8 +105,11 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
+
         return when (item.itemId) {
-            101 -> {
+            131 -> {
+                Log.e("TAG", "head lines ")
+
                 if (user != null) {
                     WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
                     Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
@@ -121,6 +121,8 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
                         Toast.LENGTH_LONG
                     ).show()
                 }
+                Toast.makeText(requireContext(), "HEAD", Toast.LENGTH_SHORT).show()
+
                 true
             }
             else -> super.onContextItemSelected(item)

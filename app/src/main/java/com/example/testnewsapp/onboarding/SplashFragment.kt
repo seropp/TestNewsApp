@@ -19,7 +19,7 @@ class SplashFragment : Fragment() {
 
         Handler().postDelayed({
             findNavController().navigate(R.id.action_splashFragment_to_onboardingViewPagerFragment2)
-        }, 200)
+        }, 0)
 
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }

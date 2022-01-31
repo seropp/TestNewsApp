@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.testnewsapp.R
 
 
@@ -23,7 +24,7 @@ class FirstFragment : Fragment() {
     ): View? {
         val view =  inflater.inflate(R.layout.fragment_first, container, false)
 
-        val viewPager = activity?.findViewById<ViewPager>(R.id.onboarding_view_pager)
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.onboarding_view_pager)
 
         btnNext = view.findViewById(R.id.next_first_screen)
         btnNext.setOnClickListener {

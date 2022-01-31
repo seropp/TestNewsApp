@@ -29,7 +29,7 @@ class LoginFirebaseUI : AppCompatActivity() {
             AuthUI.IdpConfig.EmailBuilder().build(),
             AuthUI.IdpConfig.GoogleBuilder().build(),
             AuthUI.IdpConfig.FacebookBuilder().build(),
-            AuthUI.IdpConfig.TwitterBuilder().build()
+            AuthUI.IdpConfig.GitHubBuilder().build()
         )
         startActivityForResult(
             AuthUI.getInstance()

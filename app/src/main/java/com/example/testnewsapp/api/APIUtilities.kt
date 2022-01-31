@@ -1,17 +1,15 @@
 package com.example.testnewsapp.api
 
 import android.content.Context
-import android.util.Log
+
 import android.widget.Toast
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
-import com.example.testnewsapp.api.RetrofitInstance
 import com.example.testnewsapp.models.NewsApiResponse
 import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.models.Source
 import com.example.testnewsapp.models.SourcesApiResponse
 import retrofit2.*
-
 
 
 class RequestManagerForNewsAPI(val context: Context) {
@@ -23,7 +21,8 @@ class RequestManagerForNewsAPI(val context: Context) {
         list: ArrayList<NewsClass>,
         language: String?,
         sources: String?,
-        query: String?
+        query: String?,
+        adapter: NewsAdapter?
     ) {
         val call = RetrofitInstance
             .api
@@ -34,14 +33,15 @@ class RequestManagerForNewsAPI(val context: Context) {
                 api_key = apiKey
             )
 
-        requestToAPI(call, list)
+        requestToAPI(call, list, adapter)
     }
 
     fun findHeadlinesNews(
         category: String,
         list: ArrayList<NewsClass>,
         country: String?,
-        query: String?
+        query: String?,
+        adapter: NewsAdapter?
     ) {
         val call = RetrofitInstance
             .api
@@ -52,7 +52,7 @@ class RequestManagerForNewsAPI(val context: Context) {
                 apiKey
             )
 
-        requestToAPI(call, list)
+        requestToAPI(call, list, adapter)
     }
 
     fun findAllSources(
@@ -60,13 +60,13 @@ class RequestManagerForNewsAPI(val context: Context) {
         language: String?,
         country: String?
     ): ArrayList<Source> {
-           val call = RetrofitInstance
-               .api
-               .callSources(
-                   language = language,
-                   country = country,
-                   api_key = apiKey
-               )
+        val call = RetrofitInstance
+            .api
+            .callSources(
+                language = language,
+                country = country,
+                api_key = apiKey
+            )
 
         call.enqueue(object : Callback<SourcesApiResponse> {
             override fun onResponse(
@@ -76,22 +76,18 @@ class RequestManagerForNewsAPI(val context: Context) {
                 list?.clear()
                 if (response.isSuccessful) {
                     response.body()?.sources?.let { list?.addAll(it) }
-
                 }
-
             }
-
             override fun onFailure(call: Call<SourcesApiResponse>, t: Throwable) {
             }
-
         })
         return list!!
-
     }
 
     private fun requestToAPI(
         call: Call<NewsApiResponse>,
-        list: ArrayList<NewsClass>
+        list: ArrayList<NewsClass>,
+        adapter: NewsAdapter?
     ) {
         call.enqueue(object : Callback<NewsApiResponse> {
             override fun onResponse(
@@ -102,6 +98,7 @@ class RequestManagerForNewsAPI(val context: Context) {
                 when {
                     response.isSuccessful -> {
                         list.addAll(response.body()!!.articles!!)
+                        adapter?.notifyDataSetChanged()
                     }
                     response.code() == 400 -> {
                         Toast.makeText(

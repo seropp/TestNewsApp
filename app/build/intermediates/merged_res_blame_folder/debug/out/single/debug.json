@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_splash.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\fragment_splash.xml"
+    },
+    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_navigation_statistic.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\navigation_statistic.xml"
     },
@@ -36,6 +40,14 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-xhdpi\\sett.png"
     },
     {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_first_screen.jpg.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\first_screen.jpg"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_onboarding_fragment_view_pager.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\onboarding_fragment_view_pager.xml"
+    },
+    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
@@ -48,6 +60,10 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\layout_bg.xml"
     },
     {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\navigation_my_nav.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\navigation\\my_nav.xml"
+    },
+    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_settings_fragment.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\settings_fragment.xml"
     },
@@ -58,6 +74,10 @@
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_bg1.jpg.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\bg1.jpg"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_third.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\fragment_third.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_self_improvement_24.xml.flat",
@@ -74,6 +94,10 @@
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_navigation.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\menu\\bottom_navigation.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_onboarding.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\activity_onboarding.xml"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
@@ -116,8 +140,20 @@
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_first.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\fragment_first.xml"
+    },
+    {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_bookmark_24.xml.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\ic_baseline_bookmark_24.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_second.xml.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_third_screen.jpg.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\third_screen.jpg"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -134,6 +170,10 @@
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "E:\\TestNewsApp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_second__screen.jpg.flat",
+        "source": "E:\\TestNewsApp\\app\\src\\main\\res\\drawable\\second__screen.jpg"
     },
     {
         "merged": "E:\\TestNewsApp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_sett.png.flat",

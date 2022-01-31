@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class WebView : AppCompatActivity() {
 
-    lateinit var toolbar: Toolbar
+    private lateinit var toolbar: Toolbar
     private lateinit var webView: WebView
     private lateinit var shareBT: FloatingActionButton
     private lateinit var bookmarkBT: FloatingActionButton
@@ -38,7 +38,7 @@ class WebView : AppCompatActivity() {
         val intent: Intent = intent
         val title: String = intent.getStringExtra("title")!!
         val description: String = intent.getStringExtra("description")!!
-        val content: String = intent.getStringExtra("content")!!
+        val content: String? = intent.getStringExtra("content")
         val publishedAt: String = intent.getStringExtra("publishedAt")!!
         val author: String = intent.getStringExtra("author")!!
         val source: String = intent.getStringExtra("source")!!

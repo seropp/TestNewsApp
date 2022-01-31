@@ -2,17 +2,17 @@ package com.example.testnewsapp.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import com.example.testnewsapp.headlines_categories.*
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.testnewsapp.headlines_categories.HeadlinesFragment
 
 
-class PagerAdapter(fm: FragmentManager, behavior: Int, private var tabCount: Int = behavior) :
-    FragmentPagerAdapter(fm, behavior) {
+class PagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+    FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    override fun getItem(position: Int): Fragment {
+    override fun createFragment(position: Int): Fragment {
 
         return when (position) {
-
             0 -> HeadlinesFragment("general")
             1 -> HeadlinesFragment("science")
             2 -> HeadlinesFragment("technology")
@@ -20,14 +20,11 @@ class PagerAdapter(fm: FragmentManager, behavior: Int, private var tabCount: Int
             4 -> HeadlinesFragment("sports")
             5 -> HeadlinesFragment("health")
             6 -> HeadlinesFragment("entertainment")
-
             else -> HeadlinesFragment("general")
-
         }
     }
 
-    override fun getCount(): Int {
-        return tabCount
+    override fun getItemCount(): Int {
+        return 7
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.testnewsapp.adapter
 
-
 import android.view.ContextMenu
 import android.view.View
 import android.widget.ImageView
@@ -13,16 +12,23 @@ import com.example.testnewsapp.R
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnCreateContextMenuListener{
 
 
-    var iTitle: TextView = itemView.findViewById(R.id.item_title)
-    var iDescription: TextView = itemView.findViewById(R.id.item_description)
-    var iAuthor: TextView = itemView.findViewById(R.id.item_author)
-    var iPublicationTime: TextView = itemView.findViewById(R.id.item_publication_time)
-    var iSource: TextView = itemView.findViewById(R.id.item_source)
-    var iViewImage: ImageView = itemView.findViewById(R.id.item_image)
-    var iCardView: CardView = itemView.findViewById(R.id.cardView)
+    var iTitle: TextView
+    var iDescription: TextView
+    var iAuthor: TextView
+    var iPublicationTime: TextView
+    var iSource: TextView
+    var iViewImage: ImageView
+    var iCardView: CardView
 
 
     init {
+        iTitle = itemView.findViewById(R.id.item_title)
+        iDescription = itemView.findViewById(R.id.item_description)
+        iAuthor = itemView.findViewById(R.id.item_author)
+        iPublicationTime = itemView.findViewById(R.id.item_publication_time)
+        iSource = itemView.findViewById(R.id.item_source)
+        iViewImage = itemView.findViewById(R.id.item_image)
+        iCardView = itemView.findViewById(R.id.cardView)
         iCardView.setOnCreateContextMenuListener(this)
     }
 
@@ -32,8 +38,8 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnCre
         p1: View?,
         p2: ContextMenu.ContextMenuInfo?
     ) {
-        menu?.setHeaderTitle("Bookmark")
-        menu?.add(adapterPosition, 101, 0, "Add or delete bookmark")
+        menu?.setHeaderTitle("Bookmarks")
+        menu?.add(adapterPosition, 131, 0, "Add or delete bookmark")
 
     }
 }

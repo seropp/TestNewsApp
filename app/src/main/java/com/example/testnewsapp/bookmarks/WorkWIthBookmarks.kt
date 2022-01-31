@@ -5,12 +5,14 @@ import android.widget.Toast
 import com.example.testnewsapp.MainActivity
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.math.BigInteger
 import java.math.MathContext
 
 class WorkWithBookmarks {
-
 
 
     fun deleteBookmark(item: Int, newsAdapter: NewsAdapter, context: Context?) {
@@ -18,6 +20,7 @@ class WorkWithBookmarks {
         val headline = newsAdapter.newsHLArrayList[item]
         val idForItem = idGenerator(headline.url!!)
         val user = FirebaseAuth.getInstance().currentUser
+        newsAdapter.notifyDataSetChanged()
 
         FirebaseDatabase.getInstance().getReference("users")
             .child(user!!.uid).child("bookmarks")
@@ -31,11 +34,19 @@ class WorkWithBookmarks {
         val headline = newsAdapter.newsHLArrayList[item]
         val idForItem = idGenerator(headline.url!!)
         val user = FirebaseAuth.getInstance().currentUser
+        newsAdapter.notifyDataSetChanged()
 
-        FirebaseDatabase.getInstance().getReference("users")
+        val path = FirebaseDatabase.getInstance().getReference("users")
             .child(user!!.uid).child("bookmarks")
-            .child(idForItem).setValue(headline)
+            .child(idForItem)
 
+        path.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                path.setValue(headline)
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 
     fun idGenerator(str: String): String {

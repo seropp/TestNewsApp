@@ -19,7 +19,9 @@
         <LinearLayout
             android:layout_width="match_parent"
 
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
+
+
             android:gravity="center"
             android:orientation="vertical">
 
@@ -43,8 +45,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -70,9 +72,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -84,6 +85,31 @@
                 android:backgroundTint="#6F3DAE"
                 android:text="Change sources" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="Create current settings with default settings"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <Button
+
+                android:id="@+id/set_preferences_btn"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#6F3DAE"
+                android:text="set preferences" />
         </LinearLayout>
     </LinearLayout>
 
