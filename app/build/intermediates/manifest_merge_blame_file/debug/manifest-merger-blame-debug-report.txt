@@ -14,152 +14,152 @@
 11-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:6:5-67
 11-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:6:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->[com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:10:5-79
-12-->[com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:10:22-76
+12-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:7:5-79
+12-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:7:22-76
 13    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 13-->[com.android.installreferrer:installreferrer:1.0] C:\Users\User\.gradle\caches\transforms-3\ca3fd4735257553891a5ee0432842166\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:5-110
 13-->[com.android.installreferrer:installreferrer:1.0] C:\Users\User\.gradle\caches\transforms-3\ca3fd4735257553891a5ee0432842166\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:22-107
 14
 15    <application
-15-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:8:5-60:19
+15-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:9:5-61:19
 16        android:allowBackup="true"
-16-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:9:9-35
+16-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:10:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 17-->[androidx.core:core:1.7.0] C:\Users\User\.gradle\caches\transforms-3\cb96c4ca748e404272842399af61a491\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
 19        android:extractNativeLibs="false"
 20        android:label="@string/app_name"
-20-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:10:9-41
+20-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:11:9-41
 21        android:roundIcon="@mipmap/ic_launcher_round"
-21-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:11:9-54
+21-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:12:9-54
 22        android:supportsRtl="true"
-22-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:12:9-35
+22-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:13:9-35
 23        android:testOnly="true"
 24        android:theme="@style/Theme.TestNewsApp" >
-24-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:13:9-49
+24-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:14:9-49
 25        <activity
-25-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:14:9-16:40
-26            android:name="com.example.testnewsapp.onboarding.OnboardingActivity"
-26-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:15:13-58
+25-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:15:9-17:40
+26            android:name="com.example.testnewsapp.internet_connection.InternetConnection"
+26-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:16:13-67
 27            android:exported="false" />
-27-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:16:13-37
+27-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:17:13-37
 28        <activity
-28-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:17:9-19:40
-29            android:name="com.example.testnewsapp.bookmarks.Bookmarks"
-29-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:18:13-48
+28-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:18:9-20:40
+29            android:name="com.example.testnewsapp.onboarding.OnboardingActivity"
+29-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:19:13-58
 30            android:exported="false" />
-30-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:19:13-37
+30-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:20:13-37
 31        <activity
-31-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:20:9-22:40
+31-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:21:9-23:40
 32            android:name="com.example.testnewsapp.login.LoginFirebaseUI"
-32-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:21:13-50
+32-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:22:13-50
 33            android:exported="false" />
-33-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:22:13-37
+33-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:23:13-37
 34        <activity
-34-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:23:9-25:40
+34-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:24:9-26:40
 35            android:name="com.example.testnewsapp.web_view.WebView"
-35-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:24:13-45
+35-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:25:13-45
 36            android:exported="false" />
-36-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:25:13-37
+36-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:26:13-37
 37        <activity
-37-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:26:9-28:39
+37-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:27:9-29:39
 38            android:name="com.example.testnewsapp.MainActivity"
-38-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:27:13-41
+38-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:28:13-41
 39            android:exported="true" />
-39-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:28:13-36
+39-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:29:13-36
 40        <activity
-40-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:29:9-37:20
+40-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:30:9-38:20
 41            android:name="com.example.testnewsapp.login.LoginActivity"
-41-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:30:13-48
+41-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:31:13-48
 42            android:exported="true" >
-42-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:31:13-36
+42-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:32:13-36
 43            <intent-filter>
-43-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:32:13-36:29
+43-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:33:13-37:29
 44                <action android:name="android.intent.action.MAIN" />
-44-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:33:17-69
-44-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:33:25-66
+44-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:34:17-69
+44-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:34:25-66
 45
 46                <category android:name="android.intent.category.LAUNCHER" />
-46-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:35:17-77
-46-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:35:27-74
+46-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:36:17-77
+46-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:36:27-74
 47            </intent-filter>
 48        </activity>
 49
 50        <meta-data
-50-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:39:9-42:45
+50-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:40:9-43:45
 51            android:name="com.facebook.sdk.ApplicationId"
-51-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:40:13-58
+51-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:41:13-58
 52            android:value="@string/facebook_app_id" />
-52-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:41:13-52
+52-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:42:13-52
 53
 54        <activity
-54-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:44:9-47:48
+54-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:45:9-48:48
 55            android:name="com.facebook.FacebookActivity"
-55-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:45:13-57
+55-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:46:13-57
 56            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-56-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:46:13-96
+56-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:47:13-96
 57            android:label="@string/app_name"
-57-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:47:13-45
+57-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:48:13-45
 58            android:theme="@style/com_facebook_activity_theme" />
 58-->[com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:33:13-63
 59        <activity
-59-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:48:9-59:20
+59-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:49:9-60:20
 60            android:name="com.facebook.CustomTabActivity"
-60-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:49:13-58
+60-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:50:13-58
 61            android:exported="true" >
-61-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:50:13-36
+61-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:51:13-36
 62            <intent-filter>
-62-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:51:13-58:29
+62-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:13-59:29
 63                <action android:name="android.intent.action.VIEW" />
-63-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:17-69
-63-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:25-66
+63-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:17-69
+63-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:25-66
 64
 65                <category android:name="android.intent.category.DEFAULT" />
-65-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
-65-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+65-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
+65-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 66                <category android:name="android.intent.category.BROWSABLE" />
-66-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-78
-66-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-75
+66-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:17-78
+66-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:27-75
 67
 68                <data android:scheme="@string/fb_login_protocol_scheme" />
-68-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:17-75
-68-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:23-72
+68-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:17-75
+68-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:23-72
 69            </intent-filter>
 70            <intent-filter>
 70-->[com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:90:13-97:29
 71                <action android:name="android.intent.action.VIEW" />
-71-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:17-69
-71-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:25-66
+71-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:17-69
+71-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:25-66
 72
 73                <category android:name="android.intent.category.DEFAULT" />
-73-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
-73-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+73-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
+73-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 74                <category android:name="android.intent.category.BROWSABLE" />
-74-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-78
-74-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-75
+74-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:17-78
+74-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:27-75
 75
 76                <data android:scheme="@string/facebook_login_protocol_scheme" />
-76-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:17-75
-76-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:23-72
+76-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:17-75
+76-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:23-72
 77            </intent-filter>
 78            <intent-filter>
 78-->[com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:39:13-48:29
 79                <action android:name="android.intent.action.VIEW" />
-79-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:17-69
-79-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:25-66
+79-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:17-69
+79-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:25-66
 80
 81                <category android:name="android.intent.category.DEFAULT" />
-81-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
-81-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+81-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
+81-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 82                <category android:name="android.intent.category.BROWSABLE" />
-82-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-78
-82-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-75
+82-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:17-78
+82-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:27-75
 83
 84                <data
-84-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:17-75
+84-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:17-75
 85                    android:host="cct.com.example.testnewsapp"
 86                    android:scheme="fbconnect" />
-86-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:23-72
+86-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:23-72
 87            </intent-filter>
 88        </activity>
 89
@@ -374,22 +374,22 @@
 197            <intent-filter>
 197-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:33:13-43:29
 198                <action android:name="android.intent.action.VIEW" />
-198-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:17-69
-198-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:25-66
+198-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:17-69
+198-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:25-66
 199
 200                <category android:name="android.intent.category.DEFAULT" />
-200-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
-200-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+200-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
+200-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 201                <category android:name="android.intent.category.BROWSABLE" />
-201-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-78
-201-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-75
+201-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:17-78
+201-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:27-75
 202
 203                <data
-203-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:17-75
+203-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:17-75
 204                    android:host="firebase.auth"
 205                    android:path="/"
 206                    android:scheme="genericidp" />
-206-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:23-72
+206-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:23-72
 207            </intent-filter>
 208        </activity>
 209        <activity
@@ -407,22 +407,22 @@
 215            <intent-filter>
 215-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:51:13-61:29
 216                <action android:name="android.intent.action.VIEW" />
-216-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:17-69
-216-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:25-66
+216-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:17-69
+216-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:25-66
 217
 218                <category android:name="android.intent.category.DEFAULT" />
-218-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
-218-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+218-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
+218-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 219                <category android:name="android.intent.category.BROWSABLE" />
-219-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-78
-219-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-75
+219-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:17-78
+219-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:27-75
 220
 221                <data
-221-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:17-75
+221-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:17-75
 222                    android:host="firebase.auth"
 223                    android:path="/"
 224                    android:scheme="recaptcha" />
-224-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:23-72
+224-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:23-72
 225            </intent-filter>
 226        </activity>
 227
@@ -441,8 +441,8 @@
 233-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
 234
 235                <category android:name="android.intent.category.DEFAULT" />
-235-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
-235-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+235-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
+235-->E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 236            </intent-filter>
 237        </service>
 238

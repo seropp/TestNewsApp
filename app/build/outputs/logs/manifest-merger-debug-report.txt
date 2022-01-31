@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
 MERGED from [androidx.databinding:databinding-adapters:7.0.4] C:\Users\User\.gradle\caches\transforms-3\f8f8bb0e30348eb7962439797d5dd241\transformed\databinding-adapters-7.0.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:databinding-ktx:7.0.4] C:\Users\User\.gradle\caches\transforms-3\e1f2545131eedb17c6872c8b1a94a2db\transformed\jetified-databinding-ktx-7.0.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:databinding-runtime:7.0.4] C:\Users\User\.gradle\caches\transforms-3\c174657010384446e33572a87dee18e7\transformed\databinding-runtime-7.0.4\AndroidManifest.xml:17:1-22:12
@@ -104,22 +104,22 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\User\.gradle\caches\transforms
 MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\User\.gradle\caches\transforms-3\1ee77fbeeb5dcda96937a4fc735ff427\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\User\.gradle\caches\transforms-3\4a02fbc0612db7c5561cfdc0996fe5f8\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\User\.gradle\caches\transforms-3\ca3fd4735257553891a5ee0432842166\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:2:1-13:12
-INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
 	package
 		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:4:5-38
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:2:11-69
@@ -133,8 +133,18 @@ MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\User\.gradle
 MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\User\.gradle\caches\transforms-3\357dbf12b76de7ee3f9d3e4fd6b030fe\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:7:5-79
+MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\User\.gradle\caches\transforms-3\357dbf12b76de7ee3f9d3e4fd6b030fe\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\User\.gradle\caches\transforms-3\357dbf12b76de7ee3f9d3e4fd6b030fe\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:5-79
+	android:name
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:7:22-76
 application
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:8:5-60:19
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:9:5-61:19
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:13:5-105:19
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:13:5-105:19
 MERGED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\User\.gradle\caches\transforms-3\c85ecb4427792cb2a323b052e43e4bc7\transformed\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:28:5-29:19
@@ -208,90 +218,90 @@ MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\User\.gra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\User\.gradle\caches\transforms-3\cb96c4ca748e404272842399af61a491\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:11:9-41
 	android:roundIcon
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:12:9-54
 	android:allowBackup
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:9:9-35
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:13:9-49
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:14:9-49
+activity#com.example.testnewsapp.internet_connection.InternetConnection
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:15:9-17:40
+	android:exported
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:17:13-37
+	android:name
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:16:13-67
 activity#com.example.testnewsapp.onboarding.OnboardingActivity
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:14:9-16:40
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:18:9-20:40
 	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:16:13-37
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:20:13-37
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:15:13-58
-activity#com.example.testnewsapp.bookmarks.Bookmarks
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:17:9-19:40
-	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:19:13-37
-	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:18:13-48
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:19:13-58
 activity#com.example.testnewsapp.login.LoginFirebaseUI
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:20:9-22:40
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:21:9-23:40
 	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:22:13-37
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:23:13-37
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:21:13-50
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:22:13-50
 activity#com.example.testnewsapp.web_view.WebView
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:23:9-25:40
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:24:9-26:40
 	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:25:13-37
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:26:13-37
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:24:13-45
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:25:13-45
 activity#com.example.testnewsapp.MainActivity
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:26:9-28:39
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:27:9-29:39
 	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:28:13-36
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:29:13-36
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:27:13-41
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:28:13-41
 activity#com.example.testnewsapp.login.LoginActivity
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:29:9-37:20
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:30:9-38:20
 	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:31:13-36
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:32:13-36
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:30:13-48
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:31:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:32:13-36:29
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:33:13-37:29
 action#android.intent.action.MAIN
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:33:17-69
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:34:17-69
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:33:25-66
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:34:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:35:17-77
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:36:17-77
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:35:27-74
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:36:27-74
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:39:9-42:45
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:40:9-43:45
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:17:9-19:63
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:17:9-19:63
 	tools:replace
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:42:13-42
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:43:13-42
 	android:value
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:41:13-52
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:42:13-52
 		REJECTED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:19:13-60
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:40:13-58
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:41:13-58
 activity#com.facebook.FacebookActivity
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:44:9-47:48
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:45:9-48:48
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:81:9-85:48
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:81:9-85:48
 MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:30:9-33:66
 MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:30:9-33:66
 	android:label
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:47:13-45
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:48:13-45
 	tools:ignore
 		ADDED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:85:13-45
 	android:configChanges
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:46:13-96
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:47:13-96
 	android:theme
 		ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:33:13-63
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:45:13-57
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:46:13-57
 activity#com.facebook.CustomTabActivity
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:48:9-59:20
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:49:9-60:20
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:86:9-98:20
 MERGED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:86:9-98:20
 MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:35:9-49:20
@@ -299,29 +309,29 @@ MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\c
 	tools:node
 		ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\User\.gradle\caches\transforms-3\071359e80b0c95a1976e6bfab37c821d\transformed\jetified-facebook-common-8.2.0\AndroidManifest.xml:38:13-31
 	android:exported
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:50:13-36
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:51:13-36
 	tools:ignore
 		ADDED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:89:13-45
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:49:13-58
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:50:13-58
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/fb_login_protocol_scheme
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:51:13-58:29
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:13-59:29
 action#android.intent.action.VIEW
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:17-69
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:17-69
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:52:25-66
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:53:25-66
 category#android.intent.category.DEFAULT
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:17-76
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-76
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:54:27-73
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-73
 category#android.intent.category.BROWSABLE
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:17-78
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:17-78
 	android:name
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:55:27-75
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:56:27-75
 data
-ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:17-75
+ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:17-75
 	android:scheme
-		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:57:23-72
+		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml:58:23-72
 uses-sdk
 INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
@@ -536,14 +546,6 @@ INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 		ADDED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
 		INJECTED from E:\TestNewsApp\app\src\main\AndroidManifest.xml
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\User\.gradle\caches\transforms-3\7ccf0c7a2af9b6d9fb85b4fd3368b18e\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\User\.gradle\caches\transforms-3\357dbf12b76de7ee3f9d3e4fd6b030fe\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\User\.gradle\caches\transforms-3\357dbf12b76de7ee3f9d3e4fd6b030fe\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:5-79
-	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:10:22-76
 meta-data#com.google.android.gms.version
 ADDED from [com.firebaseui:firebase-ui-auth:8.0.0] C:\Users\User\.gradle\caches\transforms-3\7f2f2f086a49f2521ba4c12406e7f1c4\transformed\jetified-firebase-ui-auth-8.0.0\AndroidManifest.xml:14:9-16:69
 MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\User\.gradle\caches\transforms-3\3722c30e8b2f6f515f055c6802240584\transformed\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69

@@ -23,10 +23,10 @@
         android:testOnly="true"
         android:theme="@style/Theme.TestNewsApp" >
         <activity
-            android:name="com.example.testnewsapp.onboarding.OnboardingActivity"
+            android:name="com.example.testnewsapp.internet_connection.InternetConnection"
             android:exported="false" />
         <activity
-            android:name="com.example.testnewsapp.bookmarks.Bookmarks"
+            android:name="com.example.testnewsapp.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
             android:name="com.example.testnewsapp.login.LoginFirebaseUI"

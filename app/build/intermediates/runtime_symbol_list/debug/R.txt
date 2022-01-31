@@ -2011,6 +2011,7 @@ int drawable ic_mtrl_checked_circle 0x7f0800a7
 int drawable ic_mtrl_chip_checked_black 0x7f0800a8
 int drawable ic_mtrl_chip_checked_circle 0x7f0800a9
 int drawable ic_mtrl_chip_close_circle 0x7f0800aa
+int drawable int_connection 0x7f0800e2
 int drawable layout_bg 0x7f0800ab
 int drawable material_cursor_drawable 0x7f0800ac
 int drawable material_ic_calendar_black_24dp 0x7f0800ad
@@ -2357,6 +2358,7 @@ int id include 0x7f090120
 int id included 0x7f090121
 int id info 0x7f090122
 int id inline 0x7f090123
+int id internet_connection_btn 0x7f090279
 int id invisible 0x7f090124
 int id invisible_frame 0x7f090125
 int id inward 0x7f090126
@@ -2767,6 +2769,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0c0018
 int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
+int layout activity_internet_connection 0x7f0c00af
 int layout activity_login 0x7f0c001c
 int layout activity_main 0x7f0c001d
 int layout activity_onboarding 0x7f0c001e

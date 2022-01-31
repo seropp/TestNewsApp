@@ -2012,6 +2012,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable int_connection
 drawable layout_bg
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -2358,6 +2359,7 @@ id include
 id included
 id info
 id inline
+id internet_connection_btn
 id invisible
 id invisible_frame
 id inward
@@ -2768,6 +2770,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_internet_connection
 layout activity_login
 layout activity_main
 layout activity_onboarding

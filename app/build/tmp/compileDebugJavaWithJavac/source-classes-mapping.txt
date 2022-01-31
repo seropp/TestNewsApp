@@ -28,6 +28,8 @@ com/example/testnewsapp/BuildConfig.java
  com.example.testnewsapp.BuildConfig
 com/example/testnewsapp/databinding/CategoriesFragmentBinding.java
  com.example.testnewsapp.databinding.CategoriesFragmentBinding
+com/example/testnewsapp/databinding/ActivityInternetConnectionBinding.java
+ com.example.testnewsapp.databinding.ActivityInternetConnectionBinding
 com/example/testnewsapp/databinding/ActivityLoginBinding.java
  com.example.testnewsapp.databinding.ActivityLoginBinding
 com/example/testnewsapp/databinding/EverythingNewFragmentBinding.java
