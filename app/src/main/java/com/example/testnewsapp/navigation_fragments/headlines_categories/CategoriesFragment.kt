@@ -1,11 +1,10 @@
-package com.example.testnewsapp.headlines_categories
+package com.example.testnewsapp.navigation_fragments.headlines_categories
 
 import android.os.Bundle
 import android.view.*
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.PagerAdapter

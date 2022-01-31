@@ -104,6 +104,13 @@ class GetCurrentData {
         return pref.getString("COUNTRY", null)
     }
 
+    fun getTotalTime(context: Context): Long {
+        val pref: SharedPreferences =
+            context.getSharedPreferences("user_settings", Context.MODE_PRIVATE)
+        return pref.getLong("TIME", 0)
+    }
+
+
     fun getCurrentSources(context: Context): String? {
         val pref: SharedPreferences =
             context.getSharedPreferences("user_settings", Context.MODE_PRIVATE)

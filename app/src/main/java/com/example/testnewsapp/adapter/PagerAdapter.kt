@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.testnewsapp.headlines_categories.HeadlinesFragment
+import com.example.testnewsapp.navigation_fragments.headlines_categories.HeadlinesFragment
 
 
 class PagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :

@@ -157,6 +157,7 @@ class LoginActivity : AppCompatActivity() {
                         if (!snapshot.hasChildren()) {
 
                             currentUserReference.child("info").child("onboarding").setValue("no")
+                            currentUserReference.child("info").child("total_time").setValue(0)
 
                         }
                     }

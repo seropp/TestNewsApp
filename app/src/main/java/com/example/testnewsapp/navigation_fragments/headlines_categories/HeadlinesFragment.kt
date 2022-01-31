@@ -1,15 +1,17 @@
-package com.example.testnewsapp.headlines_categories
-
+package com.example.testnewsapp.navigation_fragments.headlines_categories
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+
 import android.util.Log
-import android.view.*
-import android.widget.*
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -26,14 +28,15 @@ import com.google.firebase.auth.FirebaseUser
 import kotlin.collections.ArrayList
 
 
-class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
+class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
-    private lateinit var everythingNewsRecyclerView: RecyclerView;
+    private lateinit var v: View
+
+    private lateinit var recyclerView: RecyclerView
     private lateinit var list: ArrayList<NewsClass>
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var searchView: SearchView
-    private var currentLanguage: String? = null
-    private var currentSources: String? = null
+    private var currentCountry: String? = null
 
     private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var swiped: SwipeRefreshLayout
@@ -44,24 +47,21 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.everything_new_fragment, null)
-
+        v = LayoutInflater.from(context).inflate(R.layout.headlines_fragment, container, false)
+        currentCountry = GetCurrentData().getCurrentRegion(requireContext())
         list = ArrayList()
 
-        swiped = view.findViewById(R.id.swiped_everything)
+
+        swiped = v.findViewById(R.id.swiped_headlines)
         swiped.setOnRefreshListener(this)
-        currentLanguage = GetCurrentData().getCurrentLanguage(requireContext())
-        currentSources = GetCurrentData().getCurrentSources(requireContext())
 
 
-        everythingNewsRecyclerView = view.findViewById(R.id.recycler_view_of_everything)
-
-        searchView = view.findViewById(R.id.search_everything)
+        searchView = v.findViewById(R.id.search_for_headlines)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 init()
-                getNews(query, adapter = newsAdapter)
+                getNews(query = query, adapter = newsAdapter)
                 return true
             }
 
@@ -71,28 +71,35 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
                 return false
             }
         })
+
         init()
         getNews(query = null, adapter = newsAdapter)
 
-
-        return view
+        return v
     }
 
     private fun init() {
-        everythingNewsRecyclerView.layoutManager = LinearLayoutManager(context)
-        newsAdapter = NewsAdapter(context, list)
-        everythingNewsRecyclerView.adapter = newsAdapter
+        recyclerView = v.findViewById(R.id.recycler_view_of_headlines)
+        registerForContextMenu(recyclerView)
+
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        newsAdapter = NewsAdapter(requireContext(), list)
+        recyclerView.adapter = newsAdapter
     }
 
     private fun getNews(query: String? = null, adapter: NewsAdapter) {
+
+
         val manager = RequestManagerForNewsAPI(requireContext())
-        manager.findEverythingNews(
+        manager.findHeadlinesNews(
+            category = category,
             list = list,
-            sources = currentSources,
-            language = currentLanguage,
             query = query,
+            country = currentCountry,
             adapter = adapter
         )
+
     }
 
 
@@ -102,8 +109,11 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
+
         return when (item.itemId) {
             131 -> {
+                Log.e("TAG", "head lines ")
+
                 if (user != null) {
                     if (NetworkManager.isNetworkAvailable(requireContext())) {
 
@@ -112,7 +122,7 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
                             .show()
 
                     } else {
-                        startActivity(Intent(requireContext(), InternetConnection::class.java))
+                        requireContext().startActivity(Intent(requireContext(), InternetConnection::class.java))
                     }
                 } else {
                     Toast.makeText(
@@ -121,6 +131,8 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
                         Toast.LENGTH_LONG
                     ).show()
                 }
+                Toast.makeText(requireContext(), "HEAD", Toast.LENGTH_SHORT).show()
+
                 true
             }
             else -> super.onContextItemSelected(item)

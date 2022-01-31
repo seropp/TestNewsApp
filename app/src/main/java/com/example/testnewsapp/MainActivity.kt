@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.testnewsapp.headlines_categories.*
+import com.example.testnewsapp.navigation_fragments.headlines_categories.*
 import com.example.testnewsapp.navigation_fragments.BookmarksFragment
-import com.example.testnewsapp.headlines_categories.EverythingNewsFragment
+import com.example.testnewsapp.navigation_fragments.headlines_categories.EverythingNewsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 import com.example.testnewsapp.navigation_fragments.SettingsFragment
+import com.example.testnewsapp.user_statistic.StatisticFragment
 import com.google.firebase.database.*
 
 
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_btn_headlines -> selectedFragment = CategoriesFragment()
+                R.id.navigation_btn_statistic -> selectedFragment = StatisticFragment()
 
                 R.id.navigation_btn_everything -> selectedFragment = EverythingNewsFragment()
 

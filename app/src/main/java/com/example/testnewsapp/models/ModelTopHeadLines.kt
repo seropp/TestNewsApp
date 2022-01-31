@@ -24,5 +24,4 @@ class NewsClass {
     var urlToImage: String? = null
     var publishedAt: String? = null
     var content: String? = null
-
 }
