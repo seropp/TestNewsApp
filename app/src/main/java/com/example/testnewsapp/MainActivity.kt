@@ -3,8 +3,6 @@ package com.example.testnewsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.testnewsapp.headlines_categories.*
@@ -12,7 +10,6 @@ import com.example.testnewsapp.navigation_fragments.BookmarksFragment
 import com.example.testnewsapp.headlines_categories.EverythingNewsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 import com.example.testnewsapp.navigation_fragments.SettingsFragment
 import com.google.firebase.database.*
@@ -21,7 +18,6 @@ import com.google.firebase.database.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNav: BottomNavigationView
-    private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

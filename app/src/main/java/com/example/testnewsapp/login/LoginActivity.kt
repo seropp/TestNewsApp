@@ -12,16 +12,19 @@ import androidx.databinding.DataBindingUtil
 import com.example.testnewsapp.MainActivity
 import com.example.testnewsapp.R
 import com.example.testnewsapp.databinding.ActivityLoginBinding
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.example.testnewsapp.onboarding.OnboardingActivity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private var auth = FirebaseAuth.getInstance().currentUser
+    private var auth: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var btnSignOut: Button
     private lateinit var btnLogIn: Button
     private lateinit var btnBeginTo: Button
@@ -40,7 +43,16 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         if (auth != null) {
-            createUI()
+            if (NetworkManager.isNetworkAvailable(this)) {
+                createUI()
+            } else {
+                startActivity(
+                    Intent(
+                        this,
+                        InternetConnection::class.java
+                    )
+                )
+            }
         }
 
 
@@ -68,25 +80,27 @@ class LoginActivity : AppCompatActivity() {
         btnBeginTo.setOnClickListener {
 
             if (auth != null) {
+                if (NetworkManager.isNetworkAvailable(this)) {
+                    val path = FirebaseDatabase.getInstance().getReference("users")
+                        .child(auth!!.uid)
+                        .child("info")
+                    path.addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
 
-                val path = FirebaseDatabase.getInstance().getReference("users")
-                    .child(auth!!.uid)
-                    .child("info")
-                path.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
+                            if (snapshot.child("onboarding").value == "no") {
 
-                        if (snapshot.child("onboarding").value == "no") {
-
-                            switchToOnboarding()
-                        } else {
-                            switchToMain()
-                            getUserSettings()
+                                switchToOnboarding()
+                            } else {
+                                switchToMain()
+                                getUserSettings()
+                            }
                         }
-                    }
 
-                    override fun onCancelled(error: DatabaseError) {}
-                })
-
+                        override fun onCancelled(error: DatabaseError) {}
+                    })
+                } else {
+                    startActivity(Intent(this, InternetConnection::class.java))
+                }
             } else {
                 switchToOnboarding()
             }

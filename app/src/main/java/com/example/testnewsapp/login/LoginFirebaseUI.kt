@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.testnewsapp.R
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
@@ -19,9 +21,18 @@ class LoginFirebaseUI : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        createLoginUI()
-    }
 
+        if (NetworkManager.isNetworkAvailable(this)) {
+            createLoginUI()
+        } else {
+            startActivity(
+                Intent(
+                    this,
+                    InternetConnection::class.java
+                )
+            )
+        }
+    }
 
 
     private fun createLoginUI() {
@@ -42,27 +53,43 @@ class LoginFirebaseUI : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (NetworkManager.isNetworkAvailable(this)) {
+            if (requestCode == RC_SIGN) {
 
-        if (requestCode == RC_SIGN) {
+                val response = IdpResponse.fromResultIntent(data)
+                if (resultCode == Activity.RESULT_OK) {
 
-            val response = IdpResponse.fromResultIntent(data)
-            if (resultCode == Activity.RESULT_OK) {
-
-                startActivity(Intent(this, LoginActivity::class.java))
-            } else {
-                if (response == null) {
-                    finish()
-                }
-                if (response?.error?.errorCode == ErrorCodes.NO_NETWORK) {
-                    Toast.makeText(this, "Internet connection lost. Try later.", Toast.LENGTH_LONG)
-                        .show()
-                    return
-                } else if (response?.error?.errorCode == ErrorCodes.UNKNOWN_ERROR) {
-                    Toast.makeText(this, response.error?.errorCode.toString(), Toast.LENGTH_LONG)
-                        .show()
-                    return
+                    startActivity(Intent(this, LoginActivity::class.java))
+                } else {
+                    if (response == null) {
+                        finish()
+                    }
+                    if (response?.error?.errorCode == ErrorCodes.NO_NETWORK) {
+                        Toast.makeText(
+                            this,
+                            "Internet connection lost. Try later.",
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
+                        return
+                    } else if (response?.error?.errorCode == ErrorCodes.UNKNOWN_ERROR) {
+                        Toast.makeText(
+                            this,
+                            response.error?.errorCode.toString(),
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
+                        return
+                    }
                 }
             }
+        } else {
+            startActivity(
+                Intent(
+                    this,
+                    InternetConnection::class.java
+                )
+            )
         }
     }
 }

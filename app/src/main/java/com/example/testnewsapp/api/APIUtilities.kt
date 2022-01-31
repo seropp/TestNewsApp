@@ -1,10 +1,14 @@
 package com.example.testnewsapp.api
 
 import android.content.Context
+import android.content.Intent
 
 import android.widget.Toast
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
+import com.example.testnewsapp.login.LoginActivity
 import com.example.testnewsapp.models.NewsApiResponse
 import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.models.Source
@@ -24,6 +28,7 @@ class RequestManagerForNewsAPI(val context: Context) {
         query: String?,
         adapter: NewsAdapter?
     ) {
+        if (NetworkManager.isNetworkAvailable(context)) {
         val call = RetrofitInstance
             .api
             .callEverything(
@@ -34,6 +39,9 @@ class RequestManagerForNewsAPI(val context: Context) {
             )
 
         requestToAPI(call, list, adapter)
+        } else {
+            context?.startActivity(Intent(context, InternetConnection::class.java))
+        }
     }
 
     fun findHeadlinesNews(
@@ -43,6 +51,7 @@ class RequestManagerForNewsAPI(val context: Context) {
         query: String?,
         adapter: NewsAdapter?
     ) {
+        if (NetworkManager.isNetworkAvailable(context)) {
         val call = RetrofitInstance
             .api
             .callHeadLinesNews(
@@ -53,6 +62,9 @@ class RequestManagerForNewsAPI(val context: Context) {
             )
 
         requestToAPI(call, list, adapter)
+        } else {
+            context?.startActivity(Intent(context, InternetConnection::class.java))
+        }
     }
 
     fun findAllSources(
@@ -60,6 +72,7 @@ class RequestManagerForNewsAPI(val context: Context) {
         language: String?,
         country: String?
     ): ArrayList<Source> {
+        if (NetworkManager.isNetworkAvailable(context)) {
         val call = RetrofitInstance
             .api
             .callSources(
@@ -82,6 +95,10 @@ class RequestManagerForNewsAPI(val context: Context) {
             }
         })
         return list!!
+        } else {
+            context.startActivity(Intent(context, InternetConnection::class.java))
+        }
+        return listOf<Source>() as ArrayList<Source>
     }
 
     private fun requestToAPI(
@@ -89,6 +106,7 @@ class RequestManagerForNewsAPI(val context: Context) {
         list: ArrayList<NewsClass>,
         adapter: NewsAdapter?
     ) {
+
         call.enqueue(object : Callback<NewsApiResponse> {
             override fun onResponse(
                 call: Call<NewsApiResponse>,
@@ -118,7 +136,12 @@ class RequestManagerForNewsAPI(val context: Context) {
             }
 
             override fun onFailure(call: Call<NewsApiResponse>, t: Throwable) {
-                Toast.makeText(context, "API response error", Toast.LENGTH_LONG).show()
+                if (!NetworkManager.isNetworkAvailable(context)) {
+                    context.startActivity(Intent(context, InternetConnection::class.java))
+                }  else {
+
+                    Toast.makeText(context, "API response error", Toast.LENGTH_LONG).show()
+                }
             }
         })
     }

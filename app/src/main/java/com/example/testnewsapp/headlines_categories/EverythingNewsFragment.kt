@@ -1,6 +1,7 @@
 package com.example.testnewsapp.headlines_categories
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -18,6 +19,8 @@ import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.api.RequestManagerForNewsAPI
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlin.collections.ArrayList
@@ -102,9 +105,15 @@ class EverythingNewsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener 
         return when (item.itemId) {
             131 -> {
                 if (user != null) {
-                    WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
-                    Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
-                        .show()
+                    if (NetworkManager.isNetworkAvailable(requireContext())) {
+
+                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
+                        Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
+                            .show()
+
+                    } else {
+                        startActivity(Intent(requireContext(), InternetConnection::class.java))
+                    }
                 } else {
                     Toast.makeText(
                         requireContext(),

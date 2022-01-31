@@ -1,6 +1,7 @@
 package com.example.testnewsapp.navigation_fragments
 
 
+import android.content.Intent
 import com.google.firebase.database.*
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testnewsapp.R
 import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.example.testnewsapp.models.NewsClass
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -52,41 +55,55 @@ class BookmarksFragment : Fragment() {
     }
 
 
-
     private fun getBookmarks() {
-        allBookmarks.addValueEventListener(object : ValueEventListener {
+        if (NetworkManager.isNetworkAvailable(requireContext())) {
+            allBookmarks.addValueEventListener(object : ValueEventListener {
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
 
-                    listOfBookmarks.removeAll { true }
-                    for (dataSnapshot in snapshot.children) {
+                        listOfBookmarks.removeAll { true }
+                        for (dataSnapshot in snapshot.children) {
 
-                        val news = dataSnapshot.getValue(NewsClass::class.java)
-                        listOfBookmarks.add(news!!)
+                            val news = dataSnapshot.getValue(NewsClass::class.java)
+                            listOfBookmarks.add(news!!)
+                        }
+                        if (context != null) {
+                            headlinesRecyclerView.layoutManager = LinearLayoutManager(context)
+                            newsAdapter = NewsAdapter(requireContext(), listOfBookmarks)
+                            headlinesRecyclerView.adapter = newsAdapter
+                        }
                     }
-                    if (context != null) {
-                        headlinesRecyclerView.layoutManager = LinearLayoutManager(context)
-                        newsAdapter = NewsAdapter(requireContext(), listOfBookmarks)
-                        headlinesRecyclerView.adapter = newsAdapter
-                    }
+
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {}
-        })
+                override fun onCancelled(error: DatabaseError) {}
+            })
+        } else {
+            requireContext().startActivity(Intent(requireContext(), InternetConnection::class.java))
+        }
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
 
-         return when (item.itemId) {
+        return when (item.itemId) {
             131 -> {
                 if (user != null) {
-                    WorkWithBookmarks().deleteBookmark(
-                        item.groupId,
-                        newsAdapter,
-                        requireContext()
-                    )
+                    if (NetworkManager.isNetworkAvailable(requireContext())) {
+
+                        WorkWithBookmarks().deleteBookmark(
+                            item.groupId,
+                            newsAdapter,
+                            requireContext()
+                        )
+                    } else {
+                        requireContext().startActivity(
+                            Intent(
+                                requireContext(),
+                                InternetConnection::class.java
+                            )
+                        )
+                    }
 
                     Toast.makeText(requireContext(), "Bookmark deleted", Toast.LENGTH_SHORT)
                         .show()
@@ -97,12 +114,11 @@ class BookmarksFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-                Toast.makeText(requireContext(), "BOOOOOk", Toast.LENGTH_SHORT)
-                    .show()
-               return true
+                return true
             }
             else -> super.onContextItemSelected(item)
         }
+
     }
 
 }

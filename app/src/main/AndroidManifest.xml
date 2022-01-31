@@ -4,6 +4,7 @@
     package="com.example.testnewsapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestNewsApp">
         <activity
-            android:name=".onboarding.OnboardingActivity"
+            android:name=".internet_connection.InternetConnection"
             android:exported="false" />
         <activity
-            android:name=".bookmarks.Bookmarks"
+            android:name=".onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginFirebaseUI"

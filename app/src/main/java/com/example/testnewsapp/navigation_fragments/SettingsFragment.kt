@@ -2,6 +2,7 @@ package com.example.testnewsapp.navigation_fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,11 +15,12 @@ import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.example.testnewsapp.GetCurrentData
 import com.example.testnewsapp.R
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.example.testnewsapp.models.Source
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-
 
 
 class SettingsFragment : Fragment() {
@@ -74,7 +76,16 @@ class SettingsFragment : Fragment() {
 
         setPreferences.setOnClickListener {
             if (user != null) {
-                setDefaultData()
+                if (NetworkManager.isNetworkAvailable(requireContext())) {
+                    setDefaultData()
+                } else {
+                    requireContext().startActivity(
+                        Intent(
+                            requireContext(),
+                            InternetConnection::class.java
+                        )
+                    )
+                }
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -114,22 +125,23 @@ class SettingsFragment : Fragment() {
 
     private fun setDefaultData() {
         if (FirebaseAuth.getInstance().currentUser != null) {
-             val users: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
+            val users: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
             val currentUserReference = users.child(FirebaseAuth.getInstance().currentUser!!.uid)
             currentUserReference
                 .child("info")
                 .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+                    override fun onDataChange(snapshot: DataSnapshot) {
 
-                    currentUserReference.child("default_region")
-                        .setValue(GetCurrentData().getCurrentRegion(requireContext()))
-                    currentUserReference.child("default_language")
-                        .setValue(GetCurrentData().getCurrentLanguage(requireContext()))
-                    currentUserReference.child("default_sources")
-                        .setValue(GetCurrentData().getCurrentSources(requireContext()))
-                }
-                override fun onCancelled(error: DatabaseError) {}
-            })
+                        currentUserReference.child("default_region")
+                            .setValue(GetCurrentData().getCurrentRegion(requireContext()))
+                        currentUserReference.child("default_language")
+                            .setValue(GetCurrentData().getCurrentLanguage(requireContext()))
+                        currentUserReference.child("default_sources")
+                            .setValue(GetCurrentData().getCurrentSources(requireContext()))
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
         }
     }
 

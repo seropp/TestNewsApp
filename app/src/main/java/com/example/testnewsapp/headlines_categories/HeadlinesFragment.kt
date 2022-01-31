@@ -1,5 +1,6 @@
 package com.example.testnewsapp.headlines_categories
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -20,6 +21,8 @@ import com.example.testnewsapp.adapter.NewsAdapter
 import com.example.testnewsapp.models.NewsClass
 import com.example.testnewsapp.api.RequestManagerForNewsAPI
 import com.example.testnewsapp.bookmarks.WorkWithBookmarks
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlin.collections.ArrayList
@@ -58,12 +61,13 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 init()
-                getNews(query = query,adapter = newsAdapter)
+                getNews(query = query, adapter = newsAdapter)
                 return true
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 init()
-                getNews(query = null,adapter = newsAdapter)
+                getNews(query = null, adapter = newsAdapter)
                 return false
             }
         })
@@ -111,9 +115,15 @@ class HeadlinesFragment(var category: String) : Fragment(), SwipeRefreshLayout.O
                 Log.e("TAG", "head lines ")
 
                 if (user != null) {
-                    WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
-                    Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
-                        .show()
+                    if (NetworkManager.isNetworkAvailable(requireContext())) {
+
+                        WorkWithBookmarks().addToBookmarks(item.groupId, newsAdapter)
+                        Toast.makeText(requireContext(), "Bookmark added", Toast.LENGTH_SHORT)
+                            .show()
+
+                    } else {
+                        requireContext().startActivity(Intent(requireContext(), InternetConnection::class.java))
+                    }
                 } else {
                     Toast.makeText(
                         requireContext(),

@@ -2,6 +2,7 @@ package com.example.testnewsapp.onboarding.screens
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
@@ -16,6 +17,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.example.testnewsapp.GetCurrentData
 import com.example.testnewsapp.R
+import com.example.testnewsapp.internet_connection.InternetConnection
+import com.example.testnewsapp.internet_connection.NetworkManager
 import com.example.testnewsapp.models.Source
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -40,8 +43,20 @@ class ThirdFragment : Fragment() {
 
         btnFinish = view.findViewById(R.id.finish_third_screen)
         btnFinish.setOnClickListener {
-            setDefaultData()
-            findNavController().navigate(R.id.action_onboardingViewPagerFragment2_to_mainActivity)
+
+            if (NetworkManager.isNetworkAvailable(requireContext())) {
+
+                setDefaultData()
+                findNavController().navigate(R.id.action_onboardingViewPagerFragment2_to_mainActivity)
+
+            } else {
+                requireContext().startActivity(
+                    Intent(
+                        requireContext(),
+                        InternetConnection::class.java
+                    )
+                )
+            }
 
         }
 
